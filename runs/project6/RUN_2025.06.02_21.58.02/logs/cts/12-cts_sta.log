@@ -1,0 +1,282 @@
+OpenROAD b16bda7e82721d10566ff7e2b68f1ff0be9f9e38 
+Features included (+) or not (-): +Charts +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+define_corners Typical
+read_liberty -corner Typical /home/furkan/.volare/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+Using 1e-12 for capacitance...
+Using 1e+03 for resistance...
+Using 1e-09 for time...
+Using 1e+00 for voltage...
+Using 1e-03 for current...
+Using 1e-09 for power...
+Using 1e-06 for distance...
+[INFO]: Reading ODB at '/openlane/designs/project6/runs/RUN_2025.06.02_21.58.02/results/cts/top_module.odb'…
+Reading design constraints file at '/openlane/designs/project6/project6.sdc'…
+[INFO]: No (un)set_propagated_clock found in /openlane/designs/project6/project6.sdc
+[INFO]: Propagating all clocks
+[INFO]: Setting RC values...
+min_report
+
+===========================================================================
+report_checks -path_delay min (Hold)
+============================================================================
+======================= Typical Corner ===================================
+
+No paths found.
+
+worst slack corner Typical: INF
+min_report_end
+max_report
+
+===========================================================================
+report_checks -path_delay max (Setup)
+============================================================================
+======================= Typical Corner ===================================
+
+No paths found.
+
+worst slack corner Typical: INF
+max_report_end
+checks_report
+
+===========================================================================
+report_checks -unconstrained
+===========================================================================
+======================= Typical Corner ===================================
+
+No paths found.
+
+
+===========================================================================
+report_checks --slack_max -0.01
+============================================================================
+======================= Typical Corner ===================================
+
+No paths found.
+
+
+===========================================================================
+ report_check_types -max_slew -max_cap -max_fanout -violators
+============================================================================
+======================= Typical Corner ===================================
+
+
+max slew violations count Typical: 0
+max fanout violations count Typical: 0
+max cap violations count Typical: 0
+
+===========================================================================
+report_parasitic_annotation -report_unannotated
+============================================================================
+Found 67 unannotated drivers.
+ clk
+ control
+ reset
+ top_module_1/HI
+ top_module_10/HI
+ top_module_11/HI
+ top_module_12/HI
+ top_module_13/HI
+ top_module_14/HI
+ top_module_15/HI
+ top_module_16/HI
+ top_module_17/HI
+ top_module_18/HI
+ top_module_19/HI
+ top_module_2/HI
+ top_module_20/HI
+ top_module_21/HI
+ top_module_22/HI
+ top_module_23/HI
+ top_module_24/HI
+ top_module_25/HI
+ top_module_26/HI
+ top_module_27/HI
+ top_module_28/HI
+ top_module_29/HI
+ top_module_3/HI
+ top_module_30/HI
+ top_module_31/HI
+ top_module_32/HI
+ top_module_33/HI
+ top_module_34/HI
+ top_module_35/HI
+ top_module_36/HI
+ top_module_37/HI
+ top_module_38/HI
+ top_module_39/HI
+ top_module_4/HI
+ top_module_40/HI
+ top_module_41/HI
+ top_module_42/HI
+ top_module_43/HI
+ top_module_44/HI
+ top_module_45/HI
+ top_module_46/HI
+ top_module_47/HI
+ top_module_48/HI
+ top_module_49/HI
+ top_module_5/HI
+ top_module_50/HI
+ top_module_51/HI
+ top_module_52/HI
+ top_module_53/HI
+ top_module_54/HI
+ top_module_55/HI
+ top_module_56/HI
+ top_module_57/HI
+ top_module_58/HI
+ top_module_59/HI
+ top_module_6/HI
+ top_module_60/HI
+ top_module_61/HI
+ top_module_62/HI
+ top_module_63/HI
+ top_module_64/HI
+ top_module_7/HI
+ top_module_8/HI
+ top_module_9/HI
+Found 0 partially unannotated drivers.
+
+===========================================================================
+max slew violation count 0
+max fanout violation count 0
+max cap violation count 0
+============================================================================
+
+===========================================================================
+check_setup -verbose -unconstrained_endpoints -multiple_clock -no_clock -no_input_delay -loops -generated_clocks
+===========================================================================
+Warning: There are 2 input ports missing set_input_delay.
+  control
+  reset
+Warning: There are 64 unconstrained endpoints.
+  result1[0]
+  result1[10]
+  result1[11]
+  result1[12]
+  result1[13]
+  result1[14]
+  result1[15]
+  result1[16]
+  result1[17]
+  result1[18]
+  result1[19]
+  result1[1]
+  result1[20]
+  result1[21]
+  result1[22]
+  result1[23]
+  result1[24]
+  result1[25]
+  result1[26]
+  result1[27]
+  result1[28]
+  result1[29]
+  result1[2]
+  result1[30]
+  result1[31]
+  result1[3]
+  result1[4]
+  result1[5]
+  result1[6]
+  result1[7]
+  result1[8]
+  result1[9]
+  result2[0]
+  result2[10]
+  result2[11]
+  result2[12]
+  result2[13]
+  result2[14]
+  result2[15]
+  result2[16]
+  result2[17]
+  result2[18]
+  result2[19]
+  result2[1]
+  result2[20]
+  result2[21]
+  result2[22]
+  result2[23]
+  result2[24]
+  result2[25]
+  result2[26]
+  result2[27]
+  result2[28]
+  result2[29]
+  result2[2]
+  result2[30]
+  result2[31]
+  result2[3]
+  result2[4]
+  result2[5]
+  result2[6]
+  result2[7]
+  result2[8]
+  result2[9]
+checks_report_end
+power_report
+
+===========================================================================
+ report_power
+============================================================================
+======================= Typical Corner ===================================
+
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Combinational          0.00e+00   0.00e+00   2.07e-10   2.07e-10  23.9%
+Clock                  0.00e+00   0.00e+00   6.61e-10   6.61e-10  76.1%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  0.00e+00   0.00e+00   8.68e-10   8.68e-10 100.0%
+                           0.0%       0.0%     100.0%
+
+power_report_end
+skew_report
+
+===========================================================================
+report_clock_skew
+============================================================================
+Clock core_clock
+No launch/capture paths found.
+
+skew_report_end
+summary_report
+
+===========================================================================
+report_tns
+============================================================================
+tns 0.00
+
+===========================================================================
+report_wns
+============================================================================
+wns 0.00
+
+===========================================================================
+report_worst_slack -max (Setup)
+============================================================================
+worst slack INF
+
+===========================================================================
+report_worst_slack -min (Hold)
+============================================================================
+worst slack INF
+summary_report_end
+area_report
+
+===========================================================================
+report_design_area
+============================================================================
+Design area 1672 u^2 2% utilization.
+area_report_end
+check_nonpropagated_clocks
+check_nonpropagated_clocks_end
+[WARNING] Did not save OpenROAD database!
+Writing SDF to '/openlane/designs/project6/runs/RUN_2025.06.02_21.58.02/results/signoff/top_module.sdf'…
+Writing timing model to '/openlane/designs/project6/runs/RUN_2025.06.02_21.58.02/results/signoff/top_module.lib'…

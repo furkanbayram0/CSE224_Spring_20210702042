@@ -1,0 +1,1726 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.38 (git sha1 543faed9c8c, clang++ 17.0.6 -fPIC -Os)
+
+[TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
+[TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
+[TCL: yosys -import] Command name collision: found pre-existing command `exec' -> skip.
+[TCL: yosys -import] Command name collision: found pre-existing command `read' -> skip.
+[TCL: yosys -import] Command name collision: found pre-existing command `trace' -> skip.
+
+1. Executing Liberty frontend: /home/furkan/.volare/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+Imported 428 cell types from liberty file.
+
+2. Executing Verilog-2005 frontend: /openlane/designs/project6/src/instruction_memory.v
+Parsing SystemVerilog input from `/openlane/designs/project6/src/instruction_memory.v' to AST representation.
+Storing AST representation for module `$abstract\instruction_memory'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: /openlane/designs/project6/src/instruction_decoder.v
+Parsing SystemVerilog input from `/openlane/designs/project6/src/instruction_decoder.v' to AST representation.
+Storing AST representation for module `$abstract\instruction_decoder'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: /openlane/designs/project6/src/pc.v
+Parsing SystemVerilog input from `/openlane/designs/project6/src/pc.v' to AST representation.
+Storing AST representation for module `$abstract\pc'.
+Successfully finished Verilog frontend.
+
+5. Executing Verilog-2005 frontend: /openlane/designs/project6/src/register_file.v
+Parsing SystemVerilog input from `/openlane/designs/project6/src/register_file.v' to AST representation.
+Storing AST representation for module `$abstract\register_file'.
+Successfully finished Verilog frontend.
+
+6. Executing Verilog-2005 frontend: /openlane/designs/project6/src/top_module.v
+Parsing SystemVerilog input from `/openlane/designs/project6/src/top_module.v' to AST representation.
+Storing AST representation for module `$abstract\top_module'.
+Successfully finished Verilog frontend.
+
+7. Executing Verilog-2005 frontend: /openlane/designs/project6/src/alu.v
+Parsing SystemVerilog input from `/openlane/designs/project6/src/alu.v' to AST representation.
+Storing AST representation for module `$abstract\alu'.
+Successfully finished Verilog frontend.
+
+8. Executing HIERARCHY pass (managing design hierarchy).
+
+9. Executing AST frontend in derive mode using pre-parsed AST for module `\top_module'.
+Generating RTLIL representation for module `\top_module'.
+
+9.1. Analyzing design hierarchy..
+Top module:  \top_module
+
+9.2. Executing AST frontend in derive mode using pre-parsed AST for module `\alu'.
+Generating RTLIL representation for module `\alu'.
+
+9.3. Executing AST frontend in derive mode using pre-parsed AST for module `\register_file'.
+Generating RTLIL representation for module `\register_file'.
+
+9.4. Executing AST frontend in derive mode using pre-parsed AST for module `\instruction_decoder'.
+Generating RTLIL representation for module `\instruction_decoder'.
+
+9.5. Executing AST frontend in derive mode using pre-parsed AST for module `\instruction_memory'.
+Generating RTLIL representation for module `\instruction_memory'.
+
+9.6. Executing AST frontend in derive mode using pre-parsed AST for module `\pc'.
+Generating RTLIL representation for module `\pc'.
+
+9.7. Analyzing design hierarchy..
+Top module:  \top_module
+Used module:     \alu
+Used module:     \register_file
+Used module:     \instruction_decoder
+Used module:     \instruction_memory
+Used module:     \pc
+
+9.8. Analyzing design hierarchy..
+Top module:  \top_module
+Used module:     \alu
+Used module:     \register_file
+Used module:     \instruction_decoder
+Used module:     \instruction_memory
+Used module:     \pc
+Removing unused module `$abstract\alu'.
+Removing unused module `$abstract\top_module'.
+Removing unused module `$abstract\register_file'.
+Removing unused module `$abstract\pc'.
+Removing unused module `$abstract\instruction_decoder'.
+Removing unused module `$abstract\instruction_memory'.
+Removed 6 unused modules.
+
+10. Generating Graphviz representation of design.
+Writing dot description to `/openlane/designs/project6/runs/RUN_2025.06.02_21.58.02/tmp/synthesis/hierarchy.dot'.
+Dumping module top_module to page 1.
+Renaming module top_module to top_module.
+
+11. Executing TRIBUF pass.
+
+12. Executing HIERARCHY pass (managing design hierarchy).
+
+12.1. Analyzing design hierarchy..
+Top module:  \top_module
+Used module:     \alu
+Used module:     \register_file
+Used module:     \instruction_decoder
+Used module:     \instruction_memory
+Used module:     \pc
+
+12.2. Analyzing design hierarchy..
+Top module:  \top_module
+Used module:     \alu
+Used module:     \register_file
+Used module:     \instruction_decoder
+Used module:     \instruction_memory
+Used module:     \pc
+Removed 0 unused modules.
+
+13. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+14. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $proc$/openlane/designs/project6/src/top_module.v:63$10 in module top_module.
+Marked 1 switch rules as full_case in process $proc$/openlane/designs/project6/src/instruction_memory.v:2$33 in module instruction_memory.
+Marked 1 switch rules as full_case in process $proc$/openlane/designs/project6/src/register_file.v:16$26 in module register_file.
+Marked 1 switch rules as full_case in process $proc$/openlane/designs/project6/src/alu.v:7$15 in module alu.
+Marked 2 switch rules as full_case in process $proc$/openlane/designs/project6/src/pc.v:2$34 in module pc.
+Removed a total of 0 dead cases.
+
+15. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 7 assignments to connections.
+
+16. Executing PROC_INIT pass (extract init attributes).
+
+17. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \reset in `\pc.$proc$/openlane/designs/project6/src/pc.v:2$34'.
+
+18. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 1 switch.
+<suppressed ~6 debug messages>
+
+19. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\top_module.$proc$/openlane/designs/project6/src/top_module.v:63$10'.
+     1/4: $2\branch_addr[31:0]
+     2/4: $2\branch[0:0]
+     3/4: $1\branch_addr[31:0]
+     4/4: $1\branch[0:0]
+Creating decoders for process `\instruction_memory.$proc$/openlane/designs/project6/src/instruction_memory.v:2$33'.
+     1/1: $1\instruction[31:0]
+Creating decoders for process `\register_file.$proc$/openlane/designs/project6/src/register_file.v:16$26'.
+     1/3: $1$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$32
+     2/3: $1$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_DATA[31:0]$31
+     3/3: $1$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_ADDR[4:0]$30
+Creating decoders for process `\alu.$proc$/openlane/designs/project6/src/alu.v:7$15'.
+     1/1: $1\Result[31:0]
+Creating decoders for process `\pc.$proc$/openlane/designs/project6/src/pc.v:2$34'.
+     1/1: $0\pc_out[31:0]
+
+20. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\top_module.\branch_addr' from process `\top_module.$proc$/openlane/designs/project6/src/top_module.v:63$10'.
+No latch inferred for signal `\top_module.\branch' from process `\top_module.$proc$/openlane/designs/project6/src/top_module.v:63$10'.
+No latch inferred for signal `\instruction_memory.\instruction' from process `\instruction_memory.$proc$/openlane/designs/project6/src/instruction_memory.v:2$33'.
+No latch inferred for signal `\alu.\Result' from process `\alu.$proc$/openlane/designs/project6/src/alu.v:7$15'.
+
+21. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\register_file.$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_ADDR' using process `\register_file.$proc$/openlane/designs/project6/src/register_file.v:16$26'.
+  created $dff cell `$procdff$83' with positive edge clock.
+Creating register for signal `\register_file.$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_DATA' using process `\register_file.$proc$/openlane/designs/project6/src/register_file.v:16$26'.
+  created $dff cell `$procdff$84' with positive edge clock.
+Creating register for signal `\register_file.$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN' using process `\register_file.$proc$/openlane/designs/project6/src/register_file.v:16$26'.
+  created $dff cell `$procdff$85' with positive edge clock.
+Creating register for signal `\pc.\pc_out' using process `\pc.$proc$/openlane/designs/project6/src/pc.v:2$34'.
+  created $adff cell `$procdff$86' with positive edge clock and positive level reset.
+
+22. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+23. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `\top_module.$proc$/openlane/designs/project6/src/top_module.v:63$10'.
+Removing empty process `top_module.$proc$/openlane/designs/project6/src/top_module.v:63$10'.
+Found and cleaned up 1 empty switch in `\instruction_memory.$proc$/openlane/designs/project6/src/instruction_memory.v:2$33'.
+Removing empty process `instruction_memory.$proc$/openlane/designs/project6/src/instruction_memory.v:2$33'.
+Found and cleaned up 1 empty switch in `\register_file.$proc$/openlane/designs/project6/src/register_file.v:16$26'.
+Removing empty process `register_file.$proc$/openlane/designs/project6/src/register_file.v:16$26'.
+Found and cleaned up 1 empty switch in `\alu.$proc$/openlane/designs/project6/src/alu.v:7$15'.
+Removing empty process `alu.$proc$/openlane/designs/project6/src/alu.v:7$15'.
+Found and cleaned up 2 empty switches in `\pc.$proc$/openlane/designs/project6/src/pc.v:2$34'.
+Removing empty process `pc.$proc$/openlane/designs/project6/src/pc.v:2$34'.
+Cleaned up 7 empty switches.
+
+24. Executing CHECK pass (checking for obvious problems).
+Checking module top_module...
+Checking module instruction_memory...
+Checking module instruction_decoder...
+Checking module register_file...
+Checking module alu...
+Checking module pc...
+Found and reported 0 problems.
+
+25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top_module.
+Optimizing module instruction_memory.
+<suppressed ~1 debug messages>
+Optimizing module instruction_decoder.
+Optimizing module register_file.
+Optimizing module alu.
+Optimizing module pc.
+
+26. Executing FLATTEN pass (flatten design).
+Deleting now unused module instruction_memory.
+Deleting now unused module instruction_decoder.
+Deleting now unused module register_file.
+Deleting now unused module alu.
+Deleting now unused module pc.
+<suppressed ~5 debug messages>
+
+27. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top_module.
+
+28. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top_module..
+Removed 3 unused cells and 42 unused wires.
+<suppressed ~6 debug messages>
+
+29. Executing OPT pass (performing simple optimizations).
+
+29.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top_module.
+
+29.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top_module'.
+<suppressed ~12 debug messages>
+Removed a total of 4 cells.
+
+29.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \top_module..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$44.
+    dead port 1/2 on $mux $procmux$50.
+Removed 2 multiplexer ports.
+<suppressed ~8 debug messages>
+
+29.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \top_module.
+    New ctrl vector for $pmux cell $flatten\alu_unit.$procmux$71: { $eq$/openlane/designs/project6/src/top_module.v:70$12_Y $flatten\alu_unit.$procmux$75_CMP $flatten\alu_unit.$procmux$74_CMP $auto$opt_reduce.cc:134:opt_pmux$89 $eq$/openlane/designs/project6/src/top_module.v:54$7_Y }
+    Consolidated identical input bits for $mux cell $flatten\regfile.$procmux$62:
+      Old ports: A=0, B=32'11111111111111111111111111111111, Y=$flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29
+      New ports: A=1'0, B=1'1, Y=$flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29 [0]
+      New connections: $flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29 [31:1] = { $flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29 [0] $flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29 [0] $flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29 [0] $flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29 [0] $flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29 [0] $flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29 [0] $flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29 [0] $flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29 [0] $flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29 [0] $flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29 [0] $flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29 [0] $flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29 [0] $flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29 [0] $flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29 [0] $flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29 [0] $flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29 [0] $flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29 [0] $flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29 [0] $flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29 [0] $flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29 [0] $flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29 [0] $flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29 [0] $flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29 [0] $flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29 [0] $flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29 [0] $flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29 [0] $flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29 [0] $flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29 [0] $flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29 [0] $flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29 [0] $flatten\regfile.$0$memwr$\registers$/openlane/designs/project6/src/register_file.v:18$23_EN[31:0]$29 [0] }
+  Optimizing cells in module \top_module.
+Performed a total of 2 changes.
+
+29.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top_module'.
+Removed a total of 0 cells.
+
+29.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+29.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top_module..
+Removed 0 unused cells and 6 unused wires.
+<suppressed ~1 debug messages>
+
+29.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top_module.
+
+29.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+29.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \top_module..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~8 debug messages>
+
+29.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \top_module.
+Performed a total of 0 changes.
+
+29.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top_module'.
+Removed a total of 0 cells.
+
+29.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+29.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top_module..
+
+29.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top_module.
+
+29.16. Finished OPT passes. (There is nothing left to do.)
+
+30. Executing FSM pass (extract and optimize FSM).
+
+30.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+30.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+30.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+30.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top_module..
+
+30.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+30.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+30.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+30.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+31. Executing OPT pass (performing simple optimizations).
+
+31.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top_module.
+
+31.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top_module'.
+Removed a total of 0 cells.
+
+31.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \top_module..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~8 debug messages>
+
+31.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \top_module.
+Performed a total of 0 changes.
+
+31.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top_module'.
+Removed a total of 0 cells.
+
+31.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $flatten\program_counter.$procdff$86 ($adff) from module top_module (D = $flatten\program_counter.$0\pc_out[31:0], Q = \program_counter.pc_out).
+
+31.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top_module..
+
+31.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top_module.
+<suppressed ~1 debug messages>
+
+31.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+31.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \top_module..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~8 debug messages>
+
+31.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \top_module.
+Performed a total of 0 changes.
+
+31.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top_module'.
+Removed a total of 0 cells.
+
+31.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+31.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top_module..
+
+31.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top_module.
+
+31.16. Finished OPT passes. (There is nothing left to do.)
+
+32. Executing WREDUCE pass (reducing word size of cells).
+Removed top 27 address bits (of 32) from memory init port top_module.$flatten\imem.$auto$mem.cc:328:emit$39 ($flatten\imem.$auto$proc_rom.cc:150:do_switch$37).
+Removed top 2 bits (of 3) from port B of cell top_module.$ne$/openlane/designs/project6/src/top_module.v:47$3 ($ne).
+Removed top 1 bits (of 3) from port B of cell top_module.$ne$/openlane/designs/project6/src/top_module.v:47$4 ($ne).
+Removed top 2 bits (of 3) from port B of cell top_module.$eq$/openlane/designs/project6/src/top_module.v:67$11 ($eq).
+Removed top 1 bits (of 3) from port B of cell top_module.$eq$/openlane/designs/project6/src/top_module.v:70$12 ($eq).
+Removed top 18 bits (of 32) from mux cell top_module.$procmux$41 ($mux).
+Removed top 18 bits (of 32) from mux cell top_module.$procmux$53 ($mux).
+Removed top 31 bits (of 32) from port B of cell top_module.$flatten\program_counter.$add$/openlane/designs/project6/src/pc.v:8$35 ($add).
+Removed top 1 bits (of 3) from port B of cell top_module.$flatten\alu_unit.$procmux$77_CMP0 ($eq).
+Removed top 31 bits (of 32) from mux cell top_module.$flatten\alu_unit.$ternary$/openlane/designs/project6/src/alu.v:10$18 ($mux).
+Removed top 18 bits (of 32) from wire top_module.$2\branch_addr[31:0].
+Removed top 31 bits (of 32) from wire top_module.$flatten\alu_unit.$ternary$/openlane/designs/project6/src/alu.v:10$18_Y.
+Removed top 18 bits (of 32) from wire top_module.branch_addr.
+Removed top 18 bits (of 32) from wire top_module.imm_ext.
+Removed top 2 bits (of 16) from wire top_module.immediate.
+
+33. Executing PEEPOPT pass (run peephole optimizers).
+
+34. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top_module..
+Removed 0 unused cells and 5 unused wires.
+<suppressed ~1 debug messages>
+
+35. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module top_module:
+  creating $macc model for $flatten\alu_unit.$add$/openlane/designs/project6/src/alu.v:13$21 ($add).
+  creating $macc model for $flatten\alu_unit.$sub$/openlane/designs/project6/src/alu.v:14$22 ($sub).
+  creating $macc model for $flatten\program_counter.$add$/openlane/designs/project6/src/pc.v:8$35 ($add).
+  creating $alu model for $macc $flatten\program_counter.$add$/openlane/designs/project6/src/pc.v:8$35.
+  creating $alu model for $macc $flatten\alu_unit.$sub$/openlane/designs/project6/src/alu.v:14$22.
+  creating $alu model for $macc $flatten\alu_unit.$add$/openlane/designs/project6/src/alu.v:13$21.
+  creating $alu model for $flatten\alu_unit.$eq$/openlane/designs/project6/src/alu.v:10$17 ($eq): merged with $flatten\alu_unit.$sub$/openlane/designs/project6/src/alu.v:14$22.
+  creating $alu cell for $flatten\alu_unit.$add$/openlane/designs/project6/src/alu.v:13$21: $auto$alumacc.cc:485:replace_alu$98
+  creating $alu cell for $flatten\alu_unit.$sub$/openlane/designs/project6/src/alu.v:14$22, $flatten\alu_unit.$eq$/openlane/designs/project6/src/alu.v:10$17: $auto$alumacc.cc:485:replace_alu$101
+  creating $alu cell for $flatten\program_counter.$add$/openlane/designs/project6/src/pc.v:8$35: $auto$alumacc.cc:485:replace_alu$106
+  created 3 $alu and 0 $macc cells.
+
+36. Executing SHARE pass (SAT-based resource sharing).
+Found 4 cells in module top_module that may be considered for resource sharing.
+  Analyzing resource sharing options for $flatten\regfile.$memrd$\registers$/openlane/designs/project6/src/register_file.v:14$25 ($memrd):
+    Found 7 activation_patterns using ctrl signal { $flatten\alu_unit.$procmux$75_CMP $flatten\alu_unit.$procmux$74_CMP $auto$opt_reduce.cc:134:opt_pmux$89 $eq$/openlane/designs/project6/src/top_module.v:70$12_Y $eq$/openlane/designs/project6/src/top_module.v:67$11_Y $logic_or$/openlane/designs/project6/src/top_module.v:54$8_Y $eq$/openlane/designs/project6/src/top_module.v:54$7_Y \branch }.
+    No candidates found.
+  Analyzing resource sharing options for $flatten\imem.$auto$mem.cc:282:emit$38 ($memrd_v2):
+    Found 1 activation_patterns using ctrl signal $flatten\imem.$procmux$60_CMP.
+    No candidates found.
+  Analyzing resource sharing options for $flatten\alu_unit.$shr$/openlane/designs/project6/src/alu.v:12$20 ($shr):
+    Found 1 activation_patterns using ctrl signal $flatten\alu_unit.$procmux$74_CMP.
+    No candidates found.
+  Analyzing resource sharing options for $flatten\alu_unit.$shl$/openlane/designs/project6/src/alu.v:11$19 ($shl):
+    Found 1 activation_patterns using ctrl signal $flatten\alu_unit.$procmux$75_CMP.
+    No candidates found.
+
+37. Executing OPT pass (performing simple optimizations).
+
+37.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top_module.
+
+37.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top_module'.
+Removed a total of 0 cells.
+
+37.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \top_module..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~8 debug messages>
+
+37.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \top_module.
+Performed a total of 0 changes.
+
+37.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top_module'.
+Removed a total of 0 cells.
+
+37.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+37.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top_module..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+37.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top_module.
+
+37.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+37.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \top_module..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~8 debug messages>
+
+37.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \top_module.
+Performed a total of 0 changes.
+
+37.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top_module'.
+Removed a total of 0 cells.
+
+37.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+37.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top_module..
+
+37.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top_module.
+
+37.16. Finished OPT passes. (There is nothing left to do.)
+
+38. Executing MEMORY pass.
+
+38.1. Executing OPT_MEM pass (optimize memories).
+top_module.$flatten\imem.$auto$proc_rom.cc:150:do_switch$37: removing const-0 lane 4
+top_module.$flatten\imem.$auto$proc_rom.cc:150:do_switch$37: removing const-0 lane 5
+top_module.$flatten\imem.$auto$proc_rom.cc:150:do_switch$37: removing const-0 lane 6
+top_module.$flatten\imem.$auto$proc_rom.cc:150:do_switch$37: removing const-0 lane 7
+top_module.$flatten\imem.$auto$proc_rom.cc:150:do_switch$37: removing const-0 lane 8
+top_module.$flatten\imem.$auto$proc_rom.cc:150:do_switch$37: removing const-0 lane 9
+top_module.$flatten\imem.$auto$proc_rom.cc:150:do_switch$37: removing const-0 lane 10
+top_module.$flatten\imem.$auto$proc_rom.cc:150:do_switch$37: removing const-0 lane 29
+top_module.$flatten\imem.$auto$proc_rom.cc:150:do_switch$37: removing const-0 lane 30
+top_module.$flatten\imem.$auto$proc_rom.cc:150:do_switch$37: removing const-0 lane 31
+Performed a total of 1 transformations.
+
+38.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+38.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+  Analyzing top_module.regfile.registers write port 0.
+
+38.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+38.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+Checking read port `$flatten\imem.$auto$proc_rom.cc:150:do_switch$37'[0] in module `\top_module': no output FF found.
+Checking read port `\regfile.registers'[0] in module `\top_module': no output FF found.
+Checking read port `\regfile.registers'[1] in module `\top_module': no output FF found.
+Checking read port address `$flatten\imem.$auto$proc_rom.cc:150:do_switch$37'[0] in module `\top_module': address FF has async set and/or reset, not supported.
+Checking read port address `\regfile.registers'[0] in module `\top_module': no address FF found.
+Checking read port address `\regfile.registers'[1] in module `\top_module': no address FF found.
+
+38.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top_module..
+
+38.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+Consolidating read ports of memory top_module.regfile.registers by address:
+
+38.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+38.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top_module..
+
+38.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+39. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top_module..
+
+40. Executing OPT pass (performing simple optimizations).
+
+40.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top_module.
+<suppressed ~7 debug messages>
+
+40.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top_module'.
+Removed a total of 0 cells.
+
+40.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+40.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top_module..
+Removed 0 unused cells and 6 unused wires.
+<suppressed ~1 debug messages>
+
+40.5. Finished fast OPT passes.
+
+41. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+Mapping memory $flatten\imem.$auto$proc_rom.cc:150:do_switch$37 in module \top_module:
+  created 32 $dff cells and 0 static cells of width 22.
+  read interface: 0 $dff and 31 $mux cells.
+  write interface: 0 write mux blocks.
+Mapping memory \regfile.registers in module \top_module:
+  created 32 $dff cells and 0 static cells of width 32.
+  read interface: 0 $dff and 62 $mux cells.
+  write interface: 32 write mux blocks.
+
+42. Executing OPT pass (performing simple optimizations).
+
+42.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top_module.
+<suppressed ~21 debug messages>
+
+42.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top_module'.
+Removed a total of 0 cells.
+
+42.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \top_module..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~38 debug messages>
+
+42.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \top_module.
+    Consolidated identical input bits for $mux cell $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][4][10]$190:
+      Old ports: A=22'1100010100101000000001, B=22'0100000000000000001110, Y=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][5]$a$152
+      New ports: A=2'01, B=2'10, Y=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][5]$a$152 [1:0]
+      New connections: $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][5]$a$152 [21:2] = { $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][5]$a$152 [0] 4'1000 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][5]$a$152 [0] 1'0 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][5]$a$152 [0] 2'00 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][5]$a$152 [0] 1'0 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][5]$a$152 [0] 5'00000 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][5]$a$152 [1] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][5]$a$152 [1] }
+    Consolidated identical input bits for $mux cell $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][4][9]$187:
+      Old ports: A=22'0100011100000001100000, B=22'0100100000000001110000, Y=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][4]$b$150
+      New ports: A=2'10, B=2'01, Y={ $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][4]$b$150 [14] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][4]$b$150 [4] }
+      New connections: { $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][4]$b$150 [21:15] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][4]$b$150 [13:5] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][4]$b$150 [3:0] } = { 4'0100 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][4]$b$150 [4] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][4]$b$150 [14] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][4]$b$150 [14] 13'0000000110000 }
+    Consolidated identical input bits for $mux cell $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][4][8]$184:
+      Old ports: A=22'1100000000111000000001, B=22'0100011000111010000000, Y=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][4]$a$149
+      New ports: A=2'01, B=2'10, Y={ $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][4]$a$149 [7] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][4]$a$149 [0] }
+      New connections: { $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][4]$a$149 [21:8] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][4]$a$149 [6:1] } = { $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][4]$a$149 [0] 4'1000 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][4]$a$149 [7] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][4]$a$149 [7] 13'0001110000000 }
+    Consolidated identical input bits for $mux cell $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][4][7]$181:
+      Old ports: A=22'1100100001010000001110, B=22'1100000000110000000001, Y=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][3]$b$147
+      New ports: A=2'10, B=2'01, Y=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][3]$b$147 [1:0]
+      New connections: $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][3]$b$147 [21:2] = { 4'1100 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][3]$b$147 [1] 4'0000 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][3]$b$147 [1:0] 7'1000000 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][3]$b$147 [1] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][3]$b$147 [1] }
+    Consolidated identical input bits for $mux cell $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][4][6]$178:
+      Old ports: A=22'1100000000100000000100, B=22'0100000000000001010000, Y=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][3]$a$146
+      New ports: A=2'01, B=2'10, Y={ $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][3]$a$146 [4] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][3]$a$146 [2] }
+      New connections: { $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][3]$a$146 [21:5] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][3]$a$146 [3] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][3]$a$146 [1:0] } = { $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][3]$a$146 [2] 9'100000000 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][3]$a$146 [2] 4'0000 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][3]$a$146 [4] 4'0000 }
+    Consolidated identical input bits for $mux cell $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][4][3]$169:
+      Old ports: A=22'1000011110101111100000, B=22'0000000000000000000000, Y=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][1]$b$141
+      New ports: A=1'1, B=1'0, Y=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][1]$b$141 [5]
+      New connections: { $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][1]$b$141 [21:6] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][1]$b$141 [4:0] } = { $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][1]$b$141 [5] 4'0000 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][1]$b$141 [5] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][1]$b$141 [5] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][1]$b$141 [5] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][1]$b$141 [5] 1'0 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][1]$b$141 [5] 1'0 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][1]$b$141 [5] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][1]$b$141 [5] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][1]$b$141 [5] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][1]$b$141 [5] 5'00000 }
+    Consolidated identical input bits for $mux cell $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][4][2]$166:
+      Old ports: A=22'1100000010101000000010, B=22'0100000000000000001100, Y=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][1]$a$140
+      New ports: A=2'01, B=2'10, Y=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][1]$a$140 [2:1]
+      New connections: { $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][1]$a$140 [21:3] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][1]$a$140 [0] } = { $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][1]$a$140 [1] 7'1000000 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][1]$a$140 [1] 1'0 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][1]$a$140 [1] 1'0 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][1]$a$140 [1] 5'00000 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][1]$a$140 [2] 1'0 }
+    Consolidated identical input bits for $mux cell $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][4][1]$163:
+      Old ports: A=22'0100101001111110010000, B=22'1111100110100000000101, Y=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$b$138
+      New ports: A=2'10, B=2'01, Y={ $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$b$138 [4] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$b$138 [0] }
+      New connections: { $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$b$138 [21:5] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$b$138 [3:1] } = { $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$b$138 [0] 1'1 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$b$138 [0] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$b$138 [0] 2'10 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$b$138 [4] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$b$138 [0] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$b$138 [0] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$b$138 [4] 1'1 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$b$138 [4] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$b$138 [4] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$b$138 [4] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$b$138 [4] 3'000 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$b$138 [0] 1'0 }
+    Consolidated identical input bits for $mux cell $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][4][0]$160:
+      Old ports: A=22'1100000001010000001010, B=22'1100000001111000001111, Y=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$a$137
+      New ports: A=1'0, B=1'1, Y=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$a$137 [0]
+      New connections: $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$a$137 [21:1] = { 10'1100000001 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$a$137 [0] 1'1 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$a$137 [0] 6'000001 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$a$137 [0] 1'1 }
+    Consolidated identical input bits for $mux cell $flatten\imem.$procmux$59:
+      Old ports: A=0, B={ 3'000 $flatten\imem.$auto$proc_rom.cc:149:do_switch$36 [28:11] 7'0000000 $flatten\imem.$auto$proc_rom.cc:149:do_switch$36 [3:0] }, Y=\decoder.instruction
+      New ports: A=22'0000000000000000000000, B={ $flatten\imem.$auto$proc_rom.cc:149:do_switch$36 [28:11] $flatten\imem.$auto$proc_rom.cc:149:do_switch$36 [3:0] }, Y={ \decoder.instruction [28:11] \decoder.instruction [3:0] }
+      New connections: { \decoder.instruction [31:29] \decoder.instruction [10:4] } = 10'0000000000
+  Optimizing cells in module \top_module.
+    Consolidated identical input bits for $mux cell $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][5]$151:
+      Old ports: A=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][5]$a$152, B=22'0000000000000000000000, Y=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$b$132
+      New ports: A={ 1'1 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][5]$a$152 [1:0] }, B=3'000, Y={ $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$b$132 [20] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$b$132 [1:0] }
+      New connections: { $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$b$132 [21] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$b$132 [19:2] } = { $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$b$132 [0] 3'000 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$b$132 [0] 1'0 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$b$132 [0] 2'00 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$b$132 [0] 1'0 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$b$132 [0] 5'00000 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$b$132 [1] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$b$132 [1] }
+    Consolidated identical input bits for $mux cell $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][4]$148:
+      Old ports: A=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][4]$a$149, B=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][4]$b$150, Y=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$a$131
+      New ports: A={ $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][4]$a$149 [7] 2'01 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][4]$a$149 [7] 2'00 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][4]$a$149 [0] }, B={ $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][4]$b$150 [14] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][4]$b$150 [14] 3'001 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][4]$b$150 [4] 1'0 }, Y={ $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$a$131 [15:14] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$a$131 [9] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$a$131 [7] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$a$131 [5:4] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$a$131 [0] }
+      New connections: { $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$a$131 [21:16] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$a$131 [13:10] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$a$131 [8] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$a$131 [6] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$a$131 [3:1] } = { $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$a$131 [0] 3'100 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$a$131 [4] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$a$131 [15] 2'00 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$a$131 [9] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$a$131 [9] 1'0 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$a$131 [5] 3'000 }
+    Consolidated identical input bits for $mux cell $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][3]$145:
+      Old ports: A=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][3]$a$146, B=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][3]$b$147, Y=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][1]$b$129
+      New ports: A={ $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][3]$a$146 [2] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][3]$a$146 [2] 1'0 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][3]$a$146 [4] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][3]$a$146 [2] 2'00 }, B={ 1'1 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][3]$b$147 [0] 2'10 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][3]$b$147 [1] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][3]$b$147 [1:0] }, Y={ $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][1]$b$129 [21] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][1]$b$129 [11:10] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][1]$b$129 [4] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][1]$b$129 [2:0] }
+      New connections: { $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][1]$b$129 [20:12] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][1]$b$129 [9:5] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][1]$b$129 [3] } = { 3'100 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][1]$b$129 [1] 4'0000 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][1]$b$129 [1] 3'000 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][1]$b$129 [4] 1'0 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][1]$b$129 [1] }
+    Consolidated identical input bits for $mux cell $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][1]$139:
+      Old ports: A=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][1]$a$140, B=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][1]$b$141, Y=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$b$126
+      New ports: A={ 1'1 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][1]$a$140 [1] 1'0 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][1]$a$140 [2:1] }, B={ 1'0 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][1]$b$141 [5] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][1]$b$141 [5] 2'00 }, Y={ $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$b$126 [20] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$b$126 [9] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$b$126 [5] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$b$126 [2:1] }
+      New connections: { $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$b$126 [21] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$b$126 [19:10] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$b$126 [8:6] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$b$126 [4:3] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$b$126 [0] } = { $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$b$126 [9] 3'000 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$b$126 [5] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$b$126 [5] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$b$126 [5] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$b$126 [9] 1'0 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$b$126 [9] 1'0 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$b$126 [5] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$b$126 [5] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$b$126 [5] 1'0 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$b$126 [2] 1'0 }
+    Consolidated identical input bits for $mux cell $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$136:
+      Old ports: A=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$a$137, B=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$b$138, Y=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$a$125
+      New ports: A={ 3'100 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$a$137 [0] 1'1 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$a$137 [0] 2'01 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$a$137 [0] }, B={ $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$b$138 [0] 1'1 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$b$138 [0] 1'1 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$b$138 [4] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$b$138 [4] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$b$138 [4] 1'0 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$b$138 [0] }, Y={ $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$a$125 [21] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$a$125 [17] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$a$125 [13] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$a$125 [11:9] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$a$125 [4] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$a$125 [1:0] }
+      New connections: { $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$a$125 [20:18] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$a$125 [16:14] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$a$125 [12] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$a$125 [8:5] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$a$125 [3:2] } = { 1'1 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$a$125 [13] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$a$125 [13] 1'0 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$a$125 [4] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$a$125 [13] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$a$125 [10] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$a$125 [4] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$a$125 [4] 2'00 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$a$125 [1:0] }
+    Consolidated identical input bits for $mux cell $procmux$41:
+      Old ports: A=14'00000000000000, B=\decoder.instruction [13:0], Y=$2\branch_addr[31:0]
+      New ports: A=7'0000000, B={ \decoder.instruction [13:11] \decoder.instruction [3:0] }, Y={ $2\branch_addr[31:0] [13:11] $2\branch_addr[31:0] [3:0] }
+      New connections: $2\branch_addr[31:0] [10:4] = 7'0000000
+  Optimizing cells in module \top_module.
+    Consolidated identical input bits for $mux cell $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$130:
+      Old ports: A=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$a$131, B=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$b$132, Y=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][1]$a$122
+      New ports: A={ 1'1 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$a$131 [15] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$a$131 [15:14] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$a$131 [9] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$a$131 [9] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$a$131 [7] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$a$131 [5:4] 1'0 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$a$131 [0] }, B={ $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$b$132 [20] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$b$132 [0] 1'0 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$b$132 [0] 1'0 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$b$132 [0] 3'000 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$b$132 [1:0] }, Y={ $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][1]$a$122 [20] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][1]$a$122 [16:14] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][1]$a$122 [10:9] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][1]$a$122 [7] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][1]$a$122 [5:4] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][1]$a$122 [1:0] }
+      New connections: { $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][1]$a$122 [21] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][1]$a$122 [19:17] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][1]$a$122 [13:11] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][1]$a$122 [8] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][1]$a$122 [6] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][1]$a$122 [3:2] } = { $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][1]$a$122 [0] 2'00 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][1]$a$122 [4] 2'00 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][1]$a$122 [9] 1'0 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][1]$a$122 [5] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][1]$a$122 [1] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][1]$a$122 [1] }
+    Consolidated identical input bits for $mux cell $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][1]$127:
+      Old ports: A=22'0000000000000000000000, B=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][1]$b$129, Y=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$b$120
+      New ports: A=8'00000000, B={ $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][1]$b$129 [21] 1'1 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][1]$b$129 [11:10] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][1]$b$129 [4] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][1]$b$129 [2:0] }, Y={ $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$b$120 [21:20] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$b$120 [11:10] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$b$120 [4] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$b$120 [2:0] }
+      New connections: { $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$b$120 [19:12] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$b$120 [9:5] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$b$120 [3] } = { 2'00 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$b$120 [1] 4'0000 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$b$120 [1] 3'000 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$b$120 [4] 1'0 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$b$120 [1] }
+    Consolidated identical input bits for $mux cell $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$124:
+      Old ports: A=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$a$125, B=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$b$126, Y=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$a$119
+      New ports: A={ $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$a$125 [21] 1'1 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$a$125 [13] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$a$125 [17] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$a$125 [13] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$a$125 [13] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$a$125 [11:9] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$a$125 [4] 1'0 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$a$125 [4] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$a$125 [1:0] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$a$125 [1:0] }, B={ $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$b$126 [9] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$b$126 [20] 2'00 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$b$126 [5] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$b$126 [9] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$b$126 [9] 1'0 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$b$126 [9] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$b$126 [5] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$b$126 [5] 1'0 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$b$126 [2] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$b$126 [2:1] 1'0 }, Y={ $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$a$119 [21:20] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$a$119 [18:17] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$a$119 [14:13] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$a$119 [11:9] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$a$119 [7] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$a$119 [5:0] }
+      New connections: { $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$a$119 [19] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$a$119 [16:15] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$a$119 [12] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$a$119 [8] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$a$119 [6] } = { $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$a$119 [18] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$a$119 [5] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$a$119 [7] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$a$119 [10] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$a$119 [7] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$a$119 [5] }
+    Consolidated identical input bits for $mux cell $procmux$53:
+      Old ports: A=$2\branch_addr[31:0], B=\decoder.instruction [13:0], Y=\branch_addr
+      New ports: A={ $2\branch_addr[31:0] [13:11] $2\branch_addr[31:0] [3:0] }, B={ \decoder.instruction [13:11] \decoder.instruction [3:0] }, Y={ \branch_addr [13:11] \branch_addr [3:0] }
+      New connections: \branch_addr [10:4] = 7'0000000
+  Optimizing cells in module \top_module.
+    Consolidated identical input bits for $mux cell $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][1]$121:
+      Old ports: A=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][1]$a$122, B=22'0000000000000000000000, Y=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$b$117
+      New ports: A={ $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][1]$a$122 [20] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][1]$a$122 [16:14] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][1]$a$122 [10:9] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][1]$a$122 [7] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][1]$a$122 [5:4] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][1]$a$122 [1:0] }, B=11'00000000000, Y={ $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$b$117 [20] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$b$117 [16:14] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$b$117 [10:9] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$b$117 [7] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$b$117 [5:4] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$b$117 [1:0] }
+      New connections: { $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$b$117 [21] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$b$117 [19:17] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$b$117 [13:11] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$b$117 [8] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$b$117 [6] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$b$117 [3:2] } = { $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$b$117 [0] 2'00 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$b$117 [4] 2'00 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$b$117 [9] 1'0 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$b$117 [5] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$b$117 [1] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$b$117 [1] }
+    Consolidated identical input bits for $mux cell $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$118:
+      Old ports: A=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$a$119, B=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$b$120, Y=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$a$116
+      New ports: A={ $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$a$119 [21:20] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$a$119 [18:17] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$a$119 [14:13] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$a$119 [10] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$a$119 [11:9] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$a$119 [7] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$a$119 [5] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$a$119 [5:0] }, B={ $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$b$120 [21:20] 1'0 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$b$120 [1] 2'00 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$b$120 [1] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$b$120 [11:10] 2'00 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$b$120 [4] 1'0 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$b$120 [4] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$b$120 [1] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$b$120 [2:0] }, Y={ $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$a$116 [21:20] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$a$116 [18:17] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$a$116 [14:9] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$a$116 [7:0] }
+      New connections: { $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$a$116 [19] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$a$116 [16:15] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$a$116 [8] } = { $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$a$116 [18] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$a$116 [5] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$a$116 [7] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$a$116 [7] }
+  Optimizing cells in module \top_module.
+    Consolidated identical input bits for $mux cell $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$115:
+      Old ports: A=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$a$116, B=$memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$b$117, Y={ $flatten\imem.$auto$proc_rom.cc:149:do_switch$36 [28:11] $flatten\imem.$auto$proc_rom.cc:149:do_switch$36 [3:0] }
+      New ports: A={ $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$a$116 [21:20] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$a$116 [18:17] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$a$116 [5] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$a$116 [7] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$a$116 [14:9] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$a$116 [7] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$a$116 [7:0] }, B={ $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$b$117 [0] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$b$117 [20] 1'0 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$b$117 [4] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$b$117 [16:14] 2'00 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$b$117 [9] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$b$117 [10:9] 1'0 $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$b$117 [7] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$b$117 [5] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$b$117 [5:4] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$b$117 [1] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$b$117 [1] $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$b$117 [1:0] }, Y={ $flatten\imem.$auto$proc_rom.cc:149:do_switch$36 [28:27] $flatten\imem.$auto$proc_rom.cc:149:do_switch$36 [25:11] $flatten\imem.$auto$proc_rom.cc:149:do_switch$36 [3:0] }
+      New connections: $flatten\imem.$auto$proc_rom.cc:149:do_switch$36 [26] = $flatten\imem.$auto$proc_rom.cc:149:do_switch$36 [25]
+  Optimizing cells in module \top_module.
+    Consolidated identical input bits for $mux cell $flatten\imem.$procmux$59:
+      Old ports: A=22'0000000000000000000000, B={ $flatten\imem.$auto$proc_rom.cc:149:do_switch$36 [28:11] $flatten\imem.$auto$proc_rom.cc:149:do_switch$36 [3:0] }, Y={ \decoder.instruction [28:11] \decoder.instruction [3:0] }
+      New ports: A=21'000000000000000000000, B={ $flatten\imem.$auto$proc_rom.cc:149:do_switch$36 [28:27] $flatten\imem.$auto$proc_rom.cc:149:do_switch$36 [25:11] $flatten\imem.$auto$proc_rom.cc:149:do_switch$36 [3:0] }, Y={ \decoder.instruction [28:27] \decoder.instruction [25:11] \decoder.instruction [3:0] }
+      New connections: \decoder.instruction [26] = \decoder.instruction [25]
+  Optimizing cells in module \top_module.
+Performed a total of 24 changes.
+
+42.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top_module'.
+<suppressed ~15 debug messages>
+Removed a total of 5 cells.
+
+42.6. Executing OPT_SHARE pass.
+
+42.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+42.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top_module..
+Removed 0 unused cells and 149 unused wires.
+<suppressed ~1 debug messages>
+
+42.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top_module.
+<suppressed ~56 debug messages>
+
+42.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+42.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \top_module..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/6 on $pmux $flatten\alu_unit.$procmux$71.
+    dead port 2/6 on $pmux $flatten\alu_unit.$procmux$71.
+    dead port 3/6 on $pmux $flatten\alu_unit.$procmux$71.
+    dead port 4/6 on $pmux $flatten\alu_unit.$procmux$71.
+    dead port 5/6 on $pmux $flatten\alu_unit.$procmux$71.
+    dead port 1/2 on $mux $memory\regfile.registers$rdmux[1][3][0]$386.
+    dead port 2/2 on $mux $memory\regfile.registers$rdmux[1][3][1]$389.
+    dead port 1/2 on $mux $memory\regfile.registers$rdmux[1][3][2]$392.
+    dead port 2/2 on $mux $memory\regfile.registers$rdmux[1][3][3]$395.
+    dead port 1/2 on $mux $memory\regfile.registers$rdmux[1][3][4]$398.
+    dead port 2/2 on $mux $memory\regfile.registers$rdmux[1][3][5]$401.
+    dead port 1/2 on $mux $memory\regfile.registers$rdmux[1][3][6]$404.
+    dead port 2/2 on $mux $memory\regfile.registers$rdmux[1][3][7]$407.
+    dead port 1/2 on $mux $memory\regfile.registers$rdmux[1][4][10]$440.
+    dead port 2/2 on $mux $memory\regfile.registers$rdmux[1][4][10]$440.
+    dead port 1/2 on $mux $memory\regfile.registers$rdmux[1][4][13]$449.
+    dead port 2/2 on $mux $memory\regfile.registers$rdmux[1][4][13]$449.
+    dead port 1/2 on $mux $memory\regfile.registers$rdmux[1][4][14]$452.
+    dead port 2/2 on $mux $memory\regfile.registers$rdmux[1][4][14]$452.
+    dead port 1/2 on $mux $memory\regfile.registers$rdmux[1][4][1]$413.
+    dead port 2/2 on $mux $memory\regfile.registers$rdmux[1][4][1]$413.
+    dead port 1/2 on $mux $memory\regfile.registers$rdmux[1][4][2]$416.
+    dead port 2/2 on $mux $memory\regfile.registers$rdmux[1][4][2]$416.
+    dead port 1/2 on $mux $memory\regfile.registers$rdmux[1][4][5]$425.
+    dead port 2/2 on $mux $memory\regfile.registers$rdmux[1][4][5]$425.
+    dead port 1/2 on $mux $memory\regfile.registers$rdmux[1][4][6]$428.
+    dead port 2/2 on $mux $memory\regfile.registers$rdmux[1][4][6]$428.
+    dead port 1/2 on $mux $memory\regfile.registers$rdmux[1][4][9]$437.
+    dead port 2/2 on $mux $memory\regfile.registers$rdmux[1][4][9]$437.
+Removed 29 multiplexer ports.
+<suppressed ~38 debug messages>
+
+42.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \top_module.
+Performed a total of 0 changes.
+
+42.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top_module'.
+Removed a total of 0 cells.
+
+42.14. Executing OPT_SHARE pass.
+
+42.15. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $memory\regfile.registers[9]$226 ($dff) from module top_module (D = \regfile.write_data, Q = \regfile.registers[9]).
+Adding EN signal on $memory\regfile.registers[8]$224 ($dff) from module top_module (D = \regfile.write_data, Q = \regfile.registers[8]).
+Adding EN signal on $memory\regfile.registers[7]$222 ($dff) from module top_module (D = \regfile.write_data, Q = \regfile.registers[7]).
+Adding EN signal on $memory\regfile.registers[6]$220 ($dff) from module top_module (D = \regfile.write_data, Q = \regfile.registers[6]).
+Adding EN signal on $memory\regfile.registers[5]$218 ($dff) from module top_module (D = \regfile.write_data, Q = \regfile.registers[5]).
+Adding EN signal on $memory\regfile.registers[4]$216 ($dff) from module top_module (D = \regfile.write_data, Q = \regfile.registers[4]).
+Adding EN signal on $memory\regfile.registers[3]$214 ($dff) from module top_module (D = \regfile.write_data, Q = \regfile.registers[3]).
+Adding EN signal on $memory\regfile.registers[31]$270 ($dff) from module top_module (D = \regfile.write_data, Q = \regfile.registers[31]).
+Adding EN signal on $memory\regfile.registers[30]$268 ($dff) from module top_module (D = \regfile.write_data, Q = \regfile.registers[30]).
+Adding EN signal on $memory\regfile.registers[2]$212 ($dff) from module top_module (D = \regfile.write_data, Q = \regfile.registers[2]).
+Adding EN signal on $memory\regfile.registers[29]$266 ($dff) from module top_module (D = \regfile.write_data, Q = \regfile.registers[29]).
+Adding EN signal on $memory\regfile.registers[28]$264 ($dff) from module top_module (D = \regfile.write_data, Q = \regfile.registers[28]).
+Adding EN signal on $memory\regfile.registers[27]$262 ($dff) from module top_module (D = \regfile.write_data, Q = \regfile.registers[27]).
+Adding EN signal on $memory\regfile.registers[26]$260 ($dff) from module top_module (D = \regfile.write_data, Q = \regfile.registers[26]).
+Adding EN signal on $memory\regfile.registers[25]$258 ($dff) from module top_module (D = \regfile.write_data, Q = \regfile.registers[25]).
+Adding EN signal on $memory\regfile.registers[24]$256 ($dff) from module top_module (D = \regfile.write_data, Q = \regfile.registers[24]).
+Adding EN signal on $memory\regfile.registers[23]$254 ($dff) from module top_module (D = \regfile.write_data, Q = \regfile.registers[23]).
+Adding EN signal on $memory\regfile.registers[22]$252 ($dff) from module top_module (D = \regfile.write_data, Q = \regfile.registers[22]).
+Adding EN signal on $memory\regfile.registers[21]$250 ($dff) from module top_module (D = \regfile.write_data, Q = \regfile.registers[21]).
+Adding EN signal on $memory\regfile.registers[20]$248 ($dff) from module top_module (D = \regfile.write_data, Q = \regfile.registers[20]).
+Adding EN signal on $memory\regfile.registers[1]$210 ($dff) from module top_module (D = \regfile.write_data, Q = \regfile.registers[1]).
+Adding EN signal on $memory\regfile.registers[19]$246 ($dff) from module top_module (D = \regfile.write_data, Q = \regfile.registers[19]).
+Adding EN signal on $memory\regfile.registers[18]$244 ($dff) from module top_module (D = \regfile.write_data, Q = \regfile.registers[18]).
+Adding EN signal on $memory\regfile.registers[17]$242 ($dff) from module top_module (D = \regfile.write_data, Q = \regfile.registers[17]).
+Adding EN signal on $memory\regfile.registers[16]$240 ($dff) from module top_module (D = \regfile.write_data, Q = \regfile.registers[16]).
+Adding EN signal on $memory\regfile.registers[15]$238 ($dff) from module top_module (D = \regfile.write_data, Q = \regfile.registers[15]).
+Adding EN signal on $memory\regfile.registers[14]$236 ($dff) from module top_module (D = \regfile.write_data, Q = \regfile.registers[14]).
+Adding EN signal on $memory\regfile.registers[13]$234 ($dff) from module top_module (D = \regfile.write_data, Q = \regfile.registers[13]).
+Adding EN signal on $memory\regfile.registers[12]$232 ($dff) from module top_module (D = \regfile.write_data, Q = \regfile.registers[12]).
+Adding EN signal on $memory\regfile.registers[11]$230 ($dff) from module top_module (D = \regfile.write_data, Q = \regfile.registers[11]).
+Adding EN signal on $memory\regfile.registers[10]$228 ($dff) from module top_module (D = \regfile.write_data, Q = \regfile.registers[10]).
+Adding EN signal on $memory\regfile.registers[0]$208 ($dff) from module top_module (D = \regfile.write_data, Q = \regfile.registers[0]).
+
+42.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top_module..
+Removed 101 unused cells and 172 unused wires.
+<suppressed ~121 debug messages>
+
+42.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top_module.
+
+42.18. Rerunning OPT passes. (Maybe there is more to do..)
+
+42.19. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \top_module..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+42.20. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \top_module.
+Performed a total of 0 changes.
+
+42.21. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top_module'.
+Removed a total of 0 cells.
+
+42.22. Executing OPT_SHARE pass.
+
+42.23. Executing OPT_DFF pass (perform DFF optimizations).
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$702 ($dffe) from module top_module.
+Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$702 ($dffe) from module top_module.
+Setting constant 0-bit at position 2 on $auto$ff.cc:266:slice$702 ($dffe) from module top_module.
+Setting constant 0-bit at position 3 on $auto$ff.cc:266:slice$702 ($dffe) from module top_module.
+Setting constant 0-bit at position 4 on $auto$ff.cc:266:slice$702 ($dffe) from module top_module.
+Setting constant 0-bit at position 5 on $auto$ff.cc:266:slice$702 ($dffe) from module top_module.
+Setting constant 0-bit at position 6 on $auto$ff.cc:266:slice$702 ($dffe) from module top_module.
+Setting constant 0-bit at position 7 on $auto$ff.cc:266:slice$702 ($dffe) from module top_module.
+Setting constant 0-bit at position 8 on $auto$ff.cc:266:slice$702 ($dffe) from module top_module.
+Setting constant 0-bit at position 9 on $auto$ff.cc:266:slice$702 ($dffe) from module top_module.
+Setting constant 0-bit at position 10 on $auto$ff.cc:266:slice$702 ($dffe) from module top_module.
+Setting constant 0-bit at position 11 on $auto$ff.cc:266:slice$702 ($dffe) from module top_module.
+Setting constant 0-bit at position 12 on $auto$ff.cc:266:slice$702 ($dffe) from module top_module.
+Setting constant 0-bit at position 13 on $auto$ff.cc:266:slice$702 ($dffe) from module top_module.
+Setting constant 0-bit at position 14 on $auto$ff.cc:266:slice$702 ($dffe) from module top_module.
+Setting constant 0-bit at position 15 on $auto$ff.cc:266:slice$702 ($dffe) from module top_module.
+Setting constant 0-bit at position 16 on $auto$ff.cc:266:slice$702 ($dffe) from module top_module.
+Setting constant 0-bit at position 17 on $auto$ff.cc:266:slice$702 ($dffe) from module top_module.
+Setting constant 0-bit at position 18 on $auto$ff.cc:266:slice$702 ($dffe) from module top_module.
+Setting constant 0-bit at position 19 on $auto$ff.cc:266:slice$702 ($dffe) from module top_module.
+Setting constant 0-bit at position 20 on $auto$ff.cc:266:slice$702 ($dffe) from module top_module.
+Setting constant 0-bit at position 21 on $auto$ff.cc:266:slice$702 ($dffe) from module top_module.
+Setting constant 0-bit at position 22 on $auto$ff.cc:266:slice$702 ($dffe) from module top_module.
+Setting constant 0-bit at position 23 on $auto$ff.cc:266:slice$702 ($dffe) from module top_module.
+Setting constant 0-bit at position 24 on $auto$ff.cc:266:slice$702 ($dffe) from module top_module.
+Setting constant 0-bit at position 25 on $auto$ff.cc:266:slice$702 ($dffe) from module top_module.
+Setting constant 0-bit at position 26 on $auto$ff.cc:266:slice$702 ($dffe) from module top_module.
+Setting constant 0-bit at position 27 on $auto$ff.cc:266:slice$702 ($dffe) from module top_module.
+Setting constant 0-bit at position 28 on $auto$ff.cc:266:slice$702 ($dffe) from module top_module.
+Setting constant 0-bit at position 29 on $auto$ff.cc:266:slice$702 ($dffe) from module top_module.
+Setting constant 0-bit at position 30 on $auto$ff.cc:266:slice$702 ($dffe) from module top_module.
+Setting constant 0-bit at position 31 on $auto$ff.cc:266:slice$702 ($dffe) from module top_module.
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$703 ($dffe) from module top_module.
+Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$703 ($dffe) from module top_module.
+Setting constant 0-bit at position 2 on $auto$ff.cc:266:slice$703 ($dffe) from module top_module.
+Setting constant 0-bit at position 3 on $auto$ff.cc:266:slice$703 ($dffe) from module top_module.
+Setting constant 0-bit at position 4 on $auto$ff.cc:266:slice$703 ($dffe) from module top_module.
+Setting constant 0-bit at position 5 on $auto$ff.cc:266:slice$703 ($dffe) from module top_module.
+Setting constant 0-bit at position 6 on $auto$ff.cc:266:slice$703 ($dffe) from module top_module.
+Setting constant 0-bit at position 7 on $auto$ff.cc:266:slice$703 ($dffe) from module top_module.
+Setting constant 0-bit at position 8 on $auto$ff.cc:266:slice$703 ($dffe) from module top_module.
+Setting constant 0-bit at position 9 on $auto$ff.cc:266:slice$703 ($dffe) from module top_module.
+Setting constant 0-bit at position 10 on $auto$ff.cc:266:slice$703 ($dffe) from module top_module.
+Setting constant 0-bit at position 11 on $auto$ff.cc:266:slice$703 ($dffe) from module top_module.
+Setting constant 0-bit at position 12 on $auto$ff.cc:266:slice$703 ($dffe) from module top_module.
+Setting constant 0-bit at position 13 on $auto$ff.cc:266:slice$703 ($dffe) from module top_module.
+Setting constant 0-bit at position 14 on $auto$ff.cc:266:slice$703 ($dffe) from module top_module.
+Setting constant 0-bit at position 15 on $auto$ff.cc:266:slice$703 ($dffe) from module top_module.
+Setting constant 0-bit at position 16 on $auto$ff.cc:266:slice$703 ($dffe) from module top_module.
+Setting constant 0-bit at position 17 on $auto$ff.cc:266:slice$703 ($dffe) from module top_module.
+Setting constant 0-bit at position 18 on $auto$ff.cc:266:slice$703 ($dffe) from module top_module.
+Setting constant 0-bit at position 19 on $auto$ff.cc:266:slice$703 ($dffe) from module top_module.
+Setting constant 0-bit at position 20 on $auto$ff.cc:266:slice$703 ($dffe) from module top_module.
+Setting constant 0-bit at position 21 on $auto$ff.cc:266:slice$703 ($dffe) from module top_module.
+Setting constant 0-bit at position 22 on $auto$ff.cc:266:slice$703 ($dffe) from module top_module.
+Setting constant 0-bit at position 23 on $auto$ff.cc:266:slice$703 ($dffe) from module top_module.
+Setting constant 0-bit at position 24 on $auto$ff.cc:266:slice$703 ($dffe) from module top_module.
+Setting constant 0-bit at position 25 on $auto$ff.cc:266:slice$703 ($dffe) from module top_module.
+Setting constant 0-bit at position 26 on $auto$ff.cc:266:slice$703 ($dffe) from module top_module.
+Setting constant 0-bit at position 27 on $auto$ff.cc:266:slice$703 ($dffe) from module top_module.
+Setting constant 0-bit at position 28 on $auto$ff.cc:266:slice$703 ($dffe) from module top_module.
+Setting constant 0-bit at position 29 on $auto$ff.cc:266:slice$703 ($dffe) from module top_module.
+Setting constant 0-bit at position 30 on $auto$ff.cc:266:slice$703 ($dffe) from module top_module.
+Setting constant 0-bit at position 31 on $auto$ff.cc:266:slice$703 ($dffe) from module top_module.
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$704 ($dffe) from module top_module.
+Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$704 ($dffe) from module top_module.
+Setting constant 0-bit at position 2 on $auto$ff.cc:266:slice$704 ($dffe) from module top_module.
+Setting constant 0-bit at position 3 on $auto$ff.cc:266:slice$704 ($dffe) from module top_module.
+Setting constant 0-bit at position 4 on $auto$ff.cc:266:slice$704 ($dffe) from module top_module.
+Setting constant 0-bit at position 5 on $auto$ff.cc:266:slice$704 ($dffe) from module top_module.
+Setting constant 0-bit at position 6 on $auto$ff.cc:266:slice$704 ($dffe) from module top_module.
+Setting constant 0-bit at position 7 on $auto$ff.cc:266:slice$704 ($dffe) from module top_module.
+Setting constant 0-bit at position 8 on $auto$ff.cc:266:slice$704 ($dffe) from module top_module.
+Setting constant 0-bit at position 9 on $auto$ff.cc:266:slice$704 ($dffe) from module top_module.
+Setting constant 0-bit at position 10 on $auto$ff.cc:266:slice$704 ($dffe) from module top_module.
+Setting constant 0-bit at position 11 on $auto$ff.cc:266:slice$704 ($dffe) from module top_module.
+Setting constant 0-bit at position 12 on $auto$ff.cc:266:slice$704 ($dffe) from module top_module.
+Setting constant 0-bit at position 13 on $auto$ff.cc:266:slice$704 ($dffe) from module top_module.
+Setting constant 0-bit at position 14 on $auto$ff.cc:266:slice$704 ($dffe) from module top_module.
+Setting constant 0-bit at position 15 on $auto$ff.cc:266:slice$704 ($dffe) from module top_module.
+Setting constant 0-bit at position 16 on $auto$ff.cc:266:slice$704 ($dffe) from module top_module.
+Setting constant 0-bit at position 17 on $auto$ff.cc:266:slice$704 ($dffe) from module top_module.
+Setting constant 0-bit at position 18 on $auto$ff.cc:266:slice$704 ($dffe) from module top_module.
+Setting constant 0-bit at position 19 on $auto$ff.cc:266:slice$704 ($dffe) from module top_module.
+Setting constant 0-bit at position 20 on $auto$ff.cc:266:slice$704 ($dffe) from module top_module.
+Setting constant 0-bit at position 21 on $auto$ff.cc:266:slice$704 ($dffe) from module top_module.
+Setting constant 0-bit at position 22 on $auto$ff.cc:266:slice$704 ($dffe) from module top_module.
+Setting constant 0-bit at position 23 on $auto$ff.cc:266:slice$704 ($dffe) from module top_module.
+Setting constant 0-bit at position 24 on $auto$ff.cc:266:slice$704 ($dffe) from module top_module.
+Setting constant 0-bit at position 25 on $auto$ff.cc:266:slice$704 ($dffe) from module top_module.
+Setting constant 0-bit at position 26 on $auto$ff.cc:266:slice$704 ($dffe) from module top_module.
+Setting constant 0-bit at position 27 on $auto$ff.cc:266:slice$704 ($dffe) from module top_module.
+Setting constant 0-bit at position 28 on $auto$ff.cc:266:slice$704 ($dffe) from module top_module.
+Setting constant 0-bit at position 29 on $auto$ff.cc:266:slice$704 ($dffe) from module top_module.
+Setting constant 0-bit at position 30 on $auto$ff.cc:266:slice$704 ($dffe) from module top_module.
+Setting constant 0-bit at position 31 on $auto$ff.cc:266:slice$704 ($dffe) from module top_module.
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$705 ($dffe) from module top_module.
+Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$705 ($dffe) from module top_module.
+Setting constant 0-bit at position 2 on $auto$ff.cc:266:slice$705 ($dffe) from module top_module.
+Setting constant 0-bit at position 3 on $auto$ff.cc:266:slice$705 ($dffe) from module top_module.
+Setting constant 0-bit at position 4 on $auto$ff.cc:266:slice$705 ($dffe) from module top_module.
+Setting constant 0-bit at position 5 on $auto$ff.cc:266:slice$705 ($dffe) from module top_module.
+Setting constant 0-bit at position 6 on $auto$ff.cc:266:slice$705 ($dffe) from module top_module.
+Setting constant 0-bit at position 7 on $auto$ff.cc:266:slice$705 ($dffe) from module top_module.
+Setting constant 0-bit at position 8 on $auto$ff.cc:266:slice$705 ($dffe) from module top_module.
+Setting constant 0-bit at position 9 on $auto$ff.cc:266:slice$705 ($dffe) from module top_module.
+Setting constant 0-bit at position 10 on $auto$ff.cc:266:slice$705 ($dffe) from module top_module.
+Setting constant 0-bit at position 11 on $auto$ff.cc:266:slice$705 ($dffe) from module top_module.
+Setting constant 0-bit at position 12 on $auto$ff.cc:266:slice$705 ($dffe) from module top_module.
+Setting constant 0-bit at position 13 on $auto$ff.cc:266:slice$705 ($dffe) from module top_module.
+Setting constant 0-bit at position 14 on $auto$ff.cc:266:slice$705 ($dffe) from module top_module.
+Setting constant 0-bit at position 15 on $auto$ff.cc:266:slice$705 ($dffe) from module top_module.
+Setting constant 0-bit at position 16 on $auto$ff.cc:266:slice$705 ($dffe) from module top_module.
+Setting constant 0-bit at position 17 on $auto$ff.cc:266:slice$705 ($dffe) from module top_module.
+Setting constant 0-bit at position 18 on $auto$ff.cc:266:slice$705 ($dffe) from module top_module.
+Setting constant 0-bit at position 19 on $auto$ff.cc:266:slice$705 ($dffe) from module top_module.
+Setting constant 0-bit at position 20 on $auto$ff.cc:266:slice$705 ($dffe) from module top_module.
+Setting constant 0-bit at position 21 on $auto$ff.cc:266:slice$705 ($dffe) from module top_module.
+Setting constant 0-bit at position 22 on $auto$ff.cc:266:slice$705 ($dffe) from module top_module.
+Setting constant 0-bit at position 23 on $auto$ff.cc:266:slice$705 ($dffe) from module top_module.
+Setting constant 0-bit at position 24 on $auto$ff.cc:266:slice$705 ($dffe) from module top_module.
+Setting constant 0-bit at position 25 on $auto$ff.cc:266:slice$705 ($dffe) from module top_module.
+Setting constant 0-bit at position 26 on $auto$ff.cc:266:slice$705 ($dffe) from module top_module.
+Setting constant 0-bit at position 27 on $auto$ff.cc:266:slice$705 ($dffe) from module top_module.
+Setting constant 0-bit at position 28 on $auto$ff.cc:266:slice$705 ($dffe) from module top_module.
+Setting constant 0-bit at position 29 on $auto$ff.cc:266:slice$705 ($dffe) from module top_module.
+Setting constant 0-bit at position 30 on $auto$ff.cc:266:slice$705 ($dffe) from module top_module.
+Setting constant 0-bit at position 31 on $auto$ff.cc:266:slice$705 ($dffe) from module top_module.
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$709 ($dffe) from module top_module.
+Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$709 ($dffe) from module top_module.
+Setting constant 0-bit at position 2 on $auto$ff.cc:266:slice$709 ($dffe) from module top_module.
+Setting constant 0-bit at position 3 on $auto$ff.cc:266:slice$709 ($dffe) from module top_module.
+Setting constant 0-bit at position 4 on $auto$ff.cc:266:slice$709 ($dffe) from module top_module.
+Setting constant 0-bit at position 5 on $auto$ff.cc:266:slice$709 ($dffe) from module top_module.
+Setting constant 0-bit at position 6 on $auto$ff.cc:266:slice$709 ($dffe) from module top_module.
+Setting constant 0-bit at position 7 on $auto$ff.cc:266:slice$709 ($dffe) from module top_module.
+Setting constant 0-bit at position 8 on $auto$ff.cc:266:slice$709 ($dffe) from module top_module.
+Setting constant 0-bit at position 9 on $auto$ff.cc:266:slice$709 ($dffe) from module top_module.
+Setting constant 0-bit at position 10 on $auto$ff.cc:266:slice$709 ($dffe) from module top_module.
+Setting constant 0-bit at position 11 on $auto$ff.cc:266:slice$709 ($dffe) from module top_module.
+Setting constant 0-bit at position 12 on $auto$ff.cc:266:slice$709 ($dffe) from module top_module.
+Setting constant 0-bit at position 13 on $auto$ff.cc:266:slice$709 ($dffe) from module top_module.
+Setting constant 0-bit at position 14 on $auto$ff.cc:266:slice$709 ($dffe) from module top_module.
+Setting constant 0-bit at position 15 on $auto$ff.cc:266:slice$709 ($dffe) from module top_module.
+Setting constant 0-bit at position 16 on $auto$ff.cc:266:slice$709 ($dffe) from module top_module.
+Setting constant 0-bit at position 17 on $auto$ff.cc:266:slice$709 ($dffe) from module top_module.
+Setting constant 0-bit at position 18 on $auto$ff.cc:266:slice$709 ($dffe) from module top_module.
+Setting constant 0-bit at position 19 on $auto$ff.cc:266:slice$709 ($dffe) from module top_module.
+Setting constant 0-bit at position 20 on $auto$ff.cc:266:slice$709 ($dffe) from module top_module.
+Setting constant 0-bit at position 21 on $auto$ff.cc:266:slice$709 ($dffe) from module top_module.
+Setting constant 0-bit at position 22 on $auto$ff.cc:266:slice$709 ($dffe) from module top_module.
+Setting constant 0-bit at position 23 on $auto$ff.cc:266:slice$709 ($dffe) from module top_module.
+Setting constant 0-bit at position 24 on $auto$ff.cc:266:slice$709 ($dffe) from module top_module.
+Setting constant 0-bit at position 25 on $auto$ff.cc:266:slice$709 ($dffe) from module top_module.
+Setting constant 0-bit at position 26 on $auto$ff.cc:266:slice$709 ($dffe) from module top_module.
+Setting constant 0-bit at position 27 on $auto$ff.cc:266:slice$709 ($dffe) from module top_module.
+Setting constant 0-bit at position 28 on $auto$ff.cc:266:slice$709 ($dffe) from module top_module.
+Setting constant 0-bit at position 29 on $auto$ff.cc:266:slice$709 ($dffe) from module top_module.
+Setting constant 0-bit at position 30 on $auto$ff.cc:266:slice$709 ($dffe) from module top_module.
+Setting constant 0-bit at position 31 on $auto$ff.cc:266:slice$709 ($dffe) from module top_module.
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$710 ($dffe) from module top_module.
+Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$710 ($dffe) from module top_module.
+Setting constant 0-bit at position 2 on $auto$ff.cc:266:slice$710 ($dffe) from module top_module.
+Setting constant 0-bit at position 3 on $auto$ff.cc:266:slice$710 ($dffe) from module top_module.
+Setting constant 0-bit at position 4 on $auto$ff.cc:266:slice$710 ($dffe) from module top_module.
+Setting constant 0-bit at position 5 on $auto$ff.cc:266:slice$710 ($dffe) from module top_module.
+Setting constant 0-bit at position 6 on $auto$ff.cc:266:slice$710 ($dffe) from module top_module.
+Setting constant 0-bit at position 7 on $auto$ff.cc:266:slice$710 ($dffe) from module top_module.
+Setting constant 0-bit at position 8 on $auto$ff.cc:266:slice$710 ($dffe) from module top_module.
+Setting constant 0-bit at position 9 on $auto$ff.cc:266:slice$710 ($dffe) from module top_module.
+Setting constant 0-bit at position 10 on $auto$ff.cc:266:slice$710 ($dffe) from module top_module.
+Setting constant 0-bit at position 11 on $auto$ff.cc:266:slice$710 ($dffe) from module top_module.
+Setting constant 0-bit at position 12 on $auto$ff.cc:266:slice$710 ($dffe) from module top_module.
+Setting constant 0-bit at position 13 on $auto$ff.cc:266:slice$710 ($dffe) from module top_module.
+Setting constant 0-bit at position 14 on $auto$ff.cc:266:slice$710 ($dffe) from module top_module.
+Setting constant 0-bit at position 15 on $auto$ff.cc:266:slice$710 ($dffe) from module top_module.
+Setting constant 0-bit at position 16 on $auto$ff.cc:266:slice$710 ($dffe) from module top_module.
+Setting constant 0-bit at position 17 on $auto$ff.cc:266:slice$710 ($dffe) from module top_module.
+Setting constant 0-bit at position 18 on $auto$ff.cc:266:slice$710 ($dffe) from module top_module.
+Setting constant 0-bit at position 19 on $auto$ff.cc:266:slice$710 ($dffe) from module top_module.
+Setting constant 0-bit at position 20 on $auto$ff.cc:266:slice$710 ($dffe) from module top_module.
+Setting constant 0-bit at position 21 on $auto$ff.cc:266:slice$710 ($dffe) from module top_module.
+Setting constant 0-bit at position 22 on $auto$ff.cc:266:slice$710 ($dffe) from module top_module.
+Setting constant 0-bit at position 23 on $auto$ff.cc:266:slice$710 ($dffe) from module top_module.
+Setting constant 0-bit at position 24 on $auto$ff.cc:266:slice$710 ($dffe) from module top_module.
+Setting constant 0-bit at position 25 on $auto$ff.cc:266:slice$710 ($dffe) from module top_module.
+Setting constant 0-bit at position 26 on $auto$ff.cc:266:slice$710 ($dffe) from module top_module.
+Setting constant 0-bit at position 27 on $auto$ff.cc:266:slice$710 ($dffe) from module top_module.
+Setting constant 0-bit at position 28 on $auto$ff.cc:266:slice$710 ($dffe) from module top_module.
+Setting constant 0-bit at position 29 on $auto$ff.cc:266:slice$710 ($dffe) from module top_module.
+Setting constant 0-bit at position 30 on $auto$ff.cc:266:slice$710 ($dffe) from module top_module.
+Setting constant 0-bit at position 31 on $auto$ff.cc:266:slice$710 ($dffe) from module top_module.
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$716 ($dffe) from module top_module.
+Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$716 ($dffe) from module top_module.
+Setting constant 0-bit at position 2 on $auto$ff.cc:266:slice$716 ($dffe) from module top_module.
+Setting constant 0-bit at position 3 on $auto$ff.cc:266:slice$716 ($dffe) from module top_module.
+Setting constant 0-bit at position 4 on $auto$ff.cc:266:slice$716 ($dffe) from module top_module.
+Setting constant 0-bit at position 5 on $auto$ff.cc:266:slice$716 ($dffe) from module top_module.
+Setting constant 0-bit at position 6 on $auto$ff.cc:266:slice$716 ($dffe) from module top_module.
+Setting constant 0-bit at position 7 on $auto$ff.cc:266:slice$716 ($dffe) from module top_module.
+Setting constant 0-bit at position 8 on $auto$ff.cc:266:slice$716 ($dffe) from module top_module.
+Setting constant 0-bit at position 9 on $auto$ff.cc:266:slice$716 ($dffe) from module top_module.
+Setting constant 0-bit at position 10 on $auto$ff.cc:266:slice$716 ($dffe) from module top_module.
+Setting constant 0-bit at position 11 on $auto$ff.cc:266:slice$716 ($dffe) from module top_module.
+Setting constant 0-bit at position 12 on $auto$ff.cc:266:slice$716 ($dffe) from module top_module.
+Setting constant 0-bit at position 13 on $auto$ff.cc:266:slice$716 ($dffe) from module top_module.
+Setting constant 0-bit at position 14 on $auto$ff.cc:266:slice$716 ($dffe) from module top_module.
+Setting constant 0-bit at position 15 on $auto$ff.cc:266:slice$716 ($dffe) from module top_module.
+Setting constant 0-bit at position 16 on $auto$ff.cc:266:slice$716 ($dffe) from module top_module.
+Setting constant 0-bit at position 17 on $auto$ff.cc:266:slice$716 ($dffe) from module top_module.
+Setting constant 0-bit at position 18 on $auto$ff.cc:266:slice$716 ($dffe) from module top_module.
+Setting constant 0-bit at position 19 on $auto$ff.cc:266:slice$716 ($dffe) from module top_module.
+Setting constant 0-bit at position 20 on $auto$ff.cc:266:slice$716 ($dffe) from module top_module.
+Setting constant 0-bit at position 21 on $auto$ff.cc:266:slice$716 ($dffe) from module top_module.
+Setting constant 0-bit at position 22 on $auto$ff.cc:266:slice$716 ($dffe) from module top_module.
+Setting constant 0-bit at position 23 on $auto$ff.cc:266:slice$716 ($dffe) from module top_module.
+Setting constant 0-bit at position 24 on $auto$ff.cc:266:slice$716 ($dffe) from module top_module.
+Setting constant 0-bit at position 25 on $auto$ff.cc:266:slice$716 ($dffe) from module top_module.
+Setting constant 0-bit at position 26 on $auto$ff.cc:266:slice$716 ($dffe) from module top_module.
+Setting constant 0-bit at position 27 on $auto$ff.cc:266:slice$716 ($dffe) from module top_module.
+Setting constant 0-bit at position 28 on $auto$ff.cc:266:slice$716 ($dffe) from module top_module.
+Setting constant 0-bit at position 29 on $auto$ff.cc:266:slice$716 ($dffe) from module top_module.
+Setting constant 0-bit at position 30 on $auto$ff.cc:266:slice$716 ($dffe) from module top_module.
+Setting constant 0-bit at position 31 on $auto$ff.cc:266:slice$716 ($dffe) from module top_module.
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$717 ($dffe) from module top_module.
+Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$717 ($dffe) from module top_module.
+Setting constant 0-bit at position 2 on $auto$ff.cc:266:slice$717 ($dffe) from module top_module.
+Setting constant 0-bit at position 3 on $auto$ff.cc:266:slice$717 ($dffe) from module top_module.
+Setting constant 0-bit at position 4 on $auto$ff.cc:266:slice$717 ($dffe) from module top_module.
+Setting constant 0-bit at position 5 on $auto$ff.cc:266:slice$717 ($dffe) from module top_module.
+Setting constant 0-bit at position 6 on $auto$ff.cc:266:slice$717 ($dffe) from module top_module.
+Setting constant 0-bit at position 7 on $auto$ff.cc:266:slice$717 ($dffe) from module top_module.
+Setting constant 0-bit at position 8 on $auto$ff.cc:266:slice$717 ($dffe) from module top_module.
+Setting constant 0-bit at position 9 on $auto$ff.cc:266:slice$717 ($dffe) from module top_module.
+Setting constant 0-bit at position 10 on $auto$ff.cc:266:slice$717 ($dffe) from module top_module.
+Setting constant 0-bit at position 11 on $auto$ff.cc:266:slice$717 ($dffe) from module top_module.
+Setting constant 0-bit at position 12 on $auto$ff.cc:266:slice$717 ($dffe) from module top_module.
+Setting constant 0-bit at position 13 on $auto$ff.cc:266:slice$717 ($dffe) from module top_module.
+Setting constant 0-bit at position 14 on $auto$ff.cc:266:slice$717 ($dffe) from module top_module.
+Setting constant 0-bit at position 15 on $auto$ff.cc:266:slice$717 ($dffe) from module top_module.
+Setting constant 0-bit at position 16 on $auto$ff.cc:266:slice$717 ($dffe) from module top_module.
+Setting constant 0-bit at position 17 on $auto$ff.cc:266:slice$717 ($dffe) from module top_module.
+Setting constant 0-bit at position 18 on $auto$ff.cc:266:slice$717 ($dffe) from module top_module.
+Setting constant 0-bit at position 19 on $auto$ff.cc:266:slice$717 ($dffe) from module top_module.
+Setting constant 0-bit at position 20 on $auto$ff.cc:266:slice$717 ($dffe) from module top_module.
+Setting constant 0-bit at position 21 on $auto$ff.cc:266:slice$717 ($dffe) from module top_module.
+Setting constant 0-bit at position 22 on $auto$ff.cc:266:slice$717 ($dffe) from module top_module.
+Setting constant 0-bit at position 23 on $auto$ff.cc:266:slice$717 ($dffe) from module top_module.
+Setting constant 0-bit at position 24 on $auto$ff.cc:266:slice$717 ($dffe) from module top_module.
+Setting constant 0-bit at position 25 on $auto$ff.cc:266:slice$717 ($dffe) from module top_module.
+Setting constant 0-bit at position 26 on $auto$ff.cc:266:slice$717 ($dffe) from module top_module.
+Setting constant 0-bit at position 27 on $auto$ff.cc:266:slice$717 ($dffe) from module top_module.
+Setting constant 0-bit at position 28 on $auto$ff.cc:266:slice$717 ($dffe) from module top_module.
+Setting constant 0-bit at position 29 on $auto$ff.cc:266:slice$717 ($dffe) from module top_module.
+Setting constant 0-bit at position 30 on $auto$ff.cc:266:slice$717 ($dffe) from module top_module.
+Setting constant 0-bit at position 31 on $auto$ff.cc:266:slice$717 ($dffe) from module top_module.
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$718 ($dffe) from module top_module.
+Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$718 ($dffe) from module top_module.
+Setting constant 0-bit at position 2 on $auto$ff.cc:266:slice$718 ($dffe) from module top_module.
+Setting constant 0-bit at position 3 on $auto$ff.cc:266:slice$718 ($dffe) from module top_module.
+Setting constant 0-bit at position 4 on $auto$ff.cc:266:slice$718 ($dffe) from module top_module.
+Setting constant 0-bit at position 5 on $auto$ff.cc:266:slice$718 ($dffe) from module top_module.
+Setting constant 0-bit at position 6 on $auto$ff.cc:266:slice$718 ($dffe) from module top_module.
+Setting constant 0-bit at position 7 on $auto$ff.cc:266:slice$718 ($dffe) from module top_module.
+Setting constant 0-bit at position 8 on $auto$ff.cc:266:slice$718 ($dffe) from module top_module.
+Setting constant 0-bit at position 9 on $auto$ff.cc:266:slice$718 ($dffe) from module top_module.
+Setting constant 0-bit at position 10 on $auto$ff.cc:266:slice$718 ($dffe) from module top_module.
+Setting constant 0-bit at position 11 on $auto$ff.cc:266:slice$718 ($dffe) from module top_module.
+Setting constant 0-bit at position 12 on $auto$ff.cc:266:slice$718 ($dffe) from module top_module.
+Setting constant 0-bit at position 13 on $auto$ff.cc:266:slice$718 ($dffe) from module top_module.
+Setting constant 0-bit at position 14 on $auto$ff.cc:266:slice$718 ($dffe) from module top_module.
+Setting constant 0-bit at position 15 on $auto$ff.cc:266:slice$718 ($dffe) from module top_module.
+Setting constant 0-bit at position 16 on $auto$ff.cc:266:slice$718 ($dffe) from module top_module.
+Setting constant 0-bit at position 17 on $auto$ff.cc:266:slice$718 ($dffe) from module top_module.
+Setting constant 0-bit at position 18 on $auto$ff.cc:266:slice$718 ($dffe) from module top_module.
+Setting constant 0-bit at position 19 on $auto$ff.cc:266:slice$718 ($dffe) from module top_module.
+Setting constant 0-bit at position 20 on $auto$ff.cc:266:slice$718 ($dffe) from module top_module.
+Setting constant 0-bit at position 21 on $auto$ff.cc:266:slice$718 ($dffe) from module top_module.
+Setting constant 0-bit at position 22 on $auto$ff.cc:266:slice$718 ($dffe) from module top_module.
+Setting constant 0-bit at position 23 on $auto$ff.cc:266:slice$718 ($dffe) from module top_module.
+Setting constant 0-bit at position 24 on $auto$ff.cc:266:slice$718 ($dffe) from module top_module.
+Setting constant 0-bit at position 25 on $auto$ff.cc:266:slice$718 ($dffe) from module top_module.
+Setting constant 0-bit at position 26 on $auto$ff.cc:266:slice$718 ($dffe) from module top_module.
+Setting constant 0-bit at position 27 on $auto$ff.cc:266:slice$718 ($dffe) from module top_module.
+Setting constant 0-bit at position 28 on $auto$ff.cc:266:slice$718 ($dffe) from module top_module.
+Setting constant 0-bit at position 29 on $auto$ff.cc:266:slice$718 ($dffe) from module top_module.
+Setting constant 0-bit at position 30 on $auto$ff.cc:266:slice$718 ($dffe) from module top_module.
+Setting constant 0-bit at position 31 on $auto$ff.cc:266:slice$718 ($dffe) from module top_module.
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$719 ($dffe) from module top_module.
+Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$719 ($dffe) from module top_module.
+Setting constant 0-bit at position 2 on $auto$ff.cc:266:slice$719 ($dffe) from module top_module.
+Setting constant 0-bit at position 3 on $auto$ff.cc:266:slice$719 ($dffe) from module top_module.
+Setting constant 0-bit at position 4 on $auto$ff.cc:266:slice$719 ($dffe) from module top_module.
+Setting constant 0-bit at position 5 on $auto$ff.cc:266:slice$719 ($dffe) from module top_module.
+Setting constant 0-bit at position 6 on $auto$ff.cc:266:slice$719 ($dffe) from module top_module.
+Setting constant 0-bit at position 7 on $auto$ff.cc:266:slice$719 ($dffe) from module top_module.
+Setting constant 0-bit at position 8 on $auto$ff.cc:266:slice$719 ($dffe) from module top_module.
+Setting constant 0-bit at position 9 on $auto$ff.cc:266:slice$719 ($dffe) from module top_module.
+Setting constant 0-bit at position 10 on $auto$ff.cc:266:slice$719 ($dffe) from module top_module.
+Setting constant 0-bit at position 11 on $auto$ff.cc:266:slice$719 ($dffe) from module top_module.
+Setting constant 0-bit at position 12 on $auto$ff.cc:266:slice$719 ($dffe) from module top_module.
+Setting constant 0-bit at position 13 on $auto$ff.cc:266:slice$719 ($dffe) from module top_module.
+Setting constant 0-bit at position 14 on $auto$ff.cc:266:slice$719 ($dffe) from module top_module.
+Setting constant 0-bit at position 15 on $auto$ff.cc:266:slice$719 ($dffe) from module top_module.
+Setting constant 0-bit at position 16 on $auto$ff.cc:266:slice$719 ($dffe) from module top_module.
+Setting constant 0-bit at position 17 on $auto$ff.cc:266:slice$719 ($dffe) from module top_module.
+Setting constant 0-bit at position 18 on $auto$ff.cc:266:slice$719 ($dffe) from module top_module.
+Setting constant 0-bit at position 19 on $auto$ff.cc:266:slice$719 ($dffe) from module top_module.
+Setting constant 0-bit at position 20 on $auto$ff.cc:266:slice$719 ($dffe) from module top_module.
+Setting constant 0-bit at position 21 on $auto$ff.cc:266:slice$719 ($dffe) from module top_module.
+Setting constant 0-bit at position 22 on $auto$ff.cc:266:slice$719 ($dffe) from module top_module.
+Setting constant 0-bit at position 23 on $auto$ff.cc:266:slice$719 ($dffe) from module top_module.
+Setting constant 0-bit at position 24 on $auto$ff.cc:266:slice$719 ($dffe) from module top_module.
+Setting constant 0-bit at position 25 on $auto$ff.cc:266:slice$719 ($dffe) from module top_module.
+Setting constant 0-bit at position 26 on $auto$ff.cc:266:slice$719 ($dffe) from module top_module.
+Setting constant 0-bit at position 27 on $auto$ff.cc:266:slice$719 ($dffe) from module top_module.
+Setting constant 0-bit at position 28 on $auto$ff.cc:266:slice$719 ($dffe) from module top_module.
+Setting constant 0-bit at position 29 on $auto$ff.cc:266:slice$719 ($dffe) from module top_module.
+Setting constant 0-bit at position 30 on $auto$ff.cc:266:slice$719 ($dffe) from module top_module.
+Setting constant 0-bit at position 31 on $auto$ff.cc:266:slice$719 ($dffe) from module top_module.
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$722 ($dffe) from module top_module.
+Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$722 ($dffe) from module top_module.
+Setting constant 0-bit at position 2 on $auto$ff.cc:266:slice$722 ($dffe) from module top_module.
+Setting constant 0-bit at position 3 on $auto$ff.cc:266:slice$722 ($dffe) from module top_module.
+Setting constant 0-bit at position 4 on $auto$ff.cc:266:slice$722 ($dffe) from module top_module.
+Setting constant 0-bit at position 5 on $auto$ff.cc:266:slice$722 ($dffe) from module top_module.
+Setting constant 0-bit at position 6 on $auto$ff.cc:266:slice$722 ($dffe) from module top_module.
+Setting constant 0-bit at position 7 on $auto$ff.cc:266:slice$722 ($dffe) from module top_module.
+Setting constant 0-bit at position 8 on $auto$ff.cc:266:slice$722 ($dffe) from module top_module.
+Setting constant 0-bit at position 9 on $auto$ff.cc:266:slice$722 ($dffe) from module top_module.
+Setting constant 0-bit at position 10 on $auto$ff.cc:266:slice$722 ($dffe) from module top_module.
+Setting constant 0-bit at position 11 on $auto$ff.cc:266:slice$722 ($dffe) from module top_module.
+Setting constant 0-bit at position 12 on $auto$ff.cc:266:slice$722 ($dffe) from module top_module.
+Setting constant 0-bit at position 13 on $auto$ff.cc:266:slice$722 ($dffe) from module top_module.
+Setting constant 0-bit at position 14 on $auto$ff.cc:266:slice$722 ($dffe) from module top_module.
+Setting constant 0-bit at position 15 on $auto$ff.cc:266:slice$722 ($dffe) from module top_module.
+Setting constant 0-bit at position 16 on $auto$ff.cc:266:slice$722 ($dffe) from module top_module.
+Setting constant 0-bit at position 17 on $auto$ff.cc:266:slice$722 ($dffe) from module top_module.
+Setting constant 0-bit at position 18 on $auto$ff.cc:266:slice$722 ($dffe) from module top_module.
+Setting constant 0-bit at position 19 on $auto$ff.cc:266:slice$722 ($dffe) from module top_module.
+Setting constant 0-bit at position 20 on $auto$ff.cc:266:slice$722 ($dffe) from module top_module.
+Setting constant 0-bit at position 21 on $auto$ff.cc:266:slice$722 ($dffe) from module top_module.
+Setting constant 0-bit at position 22 on $auto$ff.cc:266:slice$722 ($dffe) from module top_module.
+Setting constant 0-bit at position 23 on $auto$ff.cc:266:slice$722 ($dffe) from module top_module.
+Setting constant 0-bit at position 24 on $auto$ff.cc:266:slice$722 ($dffe) from module top_module.
+Setting constant 0-bit at position 25 on $auto$ff.cc:266:slice$722 ($dffe) from module top_module.
+Setting constant 0-bit at position 26 on $auto$ff.cc:266:slice$722 ($dffe) from module top_module.
+Setting constant 0-bit at position 27 on $auto$ff.cc:266:slice$722 ($dffe) from module top_module.
+Setting constant 0-bit at position 28 on $auto$ff.cc:266:slice$722 ($dffe) from module top_module.
+Setting constant 0-bit at position 29 on $auto$ff.cc:266:slice$722 ($dffe) from module top_module.
+Setting constant 0-bit at position 30 on $auto$ff.cc:266:slice$722 ($dffe) from module top_module.
+Setting constant 0-bit at position 31 on $auto$ff.cc:266:slice$722 ($dffe) from module top_module.
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$725 ($dffe) from module top_module.
+Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$725 ($dffe) from module top_module.
+Setting constant 0-bit at position 2 on $auto$ff.cc:266:slice$725 ($dffe) from module top_module.
+Setting constant 0-bit at position 3 on $auto$ff.cc:266:slice$725 ($dffe) from module top_module.
+Setting constant 0-bit at position 4 on $auto$ff.cc:266:slice$725 ($dffe) from module top_module.
+Setting constant 0-bit at position 5 on $auto$ff.cc:266:slice$725 ($dffe) from module top_module.
+Setting constant 0-bit at position 6 on $auto$ff.cc:266:slice$725 ($dffe) from module top_module.
+Setting constant 0-bit at position 7 on $auto$ff.cc:266:slice$725 ($dffe) from module top_module.
+Setting constant 0-bit at position 8 on $auto$ff.cc:266:slice$725 ($dffe) from module top_module.
+Setting constant 0-bit at position 9 on $auto$ff.cc:266:slice$725 ($dffe) from module top_module.
+Setting constant 0-bit at position 10 on $auto$ff.cc:266:slice$725 ($dffe) from module top_module.
+Setting constant 0-bit at position 11 on $auto$ff.cc:266:slice$725 ($dffe) from module top_module.
+Setting constant 0-bit at position 12 on $auto$ff.cc:266:slice$725 ($dffe) from module top_module.
+Setting constant 0-bit at position 13 on $auto$ff.cc:266:slice$725 ($dffe) from module top_module.
+Setting constant 0-bit at position 14 on $auto$ff.cc:266:slice$725 ($dffe) from module top_module.
+Setting constant 0-bit at position 15 on $auto$ff.cc:266:slice$725 ($dffe) from module top_module.
+Setting constant 0-bit at position 16 on $auto$ff.cc:266:slice$725 ($dffe) from module top_module.
+Setting constant 0-bit at position 17 on $auto$ff.cc:266:slice$725 ($dffe) from module top_module.
+Setting constant 0-bit at position 18 on $auto$ff.cc:266:slice$725 ($dffe) from module top_module.
+Setting constant 0-bit at position 19 on $auto$ff.cc:266:slice$725 ($dffe) from module top_module.
+Setting constant 0-bit at position 20 on $auto$ff.cc:266:slice$725 ($dffe) from module top_module.
+Setting constant 0-bit at position 21 on $auto$ff.cc:266:slice$725 ($dffe) from module top_module.
+Setting constant 0-bit at position 22 on $auto$ff.cc:266:slice$725 ($dffe) from module top_module.
+Setting constant 0-bit at position 23 on $auto$ff.cc:266:slice$725 ($dffe) from module top_module.
+Setting constant 0-bit at position 24 on $auto$ff.cc:266:slice$725 ($dffe) from module top_module.
+Setting constant 0-bit at position 25 on $auto$ff.cc:266:slice$725 ($dffe) from module top_module.
+Setting constant 0-bit at position 26 on $auto$ff.cc:266:slice$725 ($dffe) from module top_module.
+Setting constant 0-bit at position 27 on $auto$ff.cc:266:slice$725 ($dffe) from module top_module.
+Setting constant 0-bit at position 28 on $auto$ff.cc:266:slice$725 ($dffe) from module top_module.
+Setting constant 0-bit at position 29 on $auto$ff.cc:266:slice$725 ($dffe) from module top_module.
+Setting constant 0-bit at position 30 on $auto$ff.cc:266:slice$725 ($dffe) from module top_module.
+Setting constant 0-bit at position 31 on $auto$ff.cc:266:slice$725 ($dffe) from module top_module.
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$726 ($dffe) from module top_module.
+Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$726 ($dffe) from module top_module.
+Setting constant 0-bit at position 2 on $auto$ff.cc:266:slice$726 ($dffe) from module top_module.
+Setting constant 0-bit at position 3 on $auto$ff.cc:266:slice$726 ($dffe) from module top_module.
+Setting constant 0-bit at position 4 on $auto$ff.cc:266:slice$726 ($dffe) from module top_module.
+Setting constant 0-bit at position 5 on $auto$ff.cc:266:slice$726 ($dffe) from module top_module.
+Setting constant 0-bit at position 6 on $auto$ff.cc:266:slice$726 ($dffe) from module top_module.
+Setting constant 0-bit at position 7 on $auto$ff.cc:266:slice$726 ($dffe) from module top_module.
+Setting constant 0-bit at position 8 on $auto$ff.cc:266:slice$726 ($dffe) from module top_module.
+Setting constant 0-bit at position 9 on $auto$ff.cc:266:slice$726 ($dffe) from module top_module.
+Setting constant 0-bit at position 10 on $auto$ff.cc:266:slice$726 ($dffe) from module top_module.
+Setting constant 0-bit at position 11 on $auto$ff.cc:266:slice$726 ($dffe) from module top_module.
+Setting constant 0-bit at position 12 on $auto$ff.cc:266:slice$726 ($dffe) from module top_module.
+Setting constant 0-bit at position 13 on $auto$ff.cc:266:slice$726 ($dffe) from module top_module.
+Setting constant 0-bit at position 14 on $auto$ff.cc:266:slice$726 ($dffe) from module top_module.
+Setting constant 0-bit at position 15 on $auto$ff.cc:266:slice$726 ($dffe) from module top_module.
+Setting constant 0-bit at position 16 on $auto$ff.cc:266:slice$726 ($dffe) from module top_module.
+Setting constant 0-bit at position 17 on $auto$ff.cc:266:slice$726 ($dffe) from module top_module.
+Setting constant 0-bit at position 18 on $auto$ff.cc:266:slice$726 ($dffe) from module top_module.
+Setting constant 0-bit at position 19 on $auto$ff.cc:266:slice$726 ($dffe) from module top_module.
+Setting constant 0-bit at position 20 on $auto$ff.cc:266:slice$726 ($dffe) from module top_module.
+Setting constant 0-bit at position 21 on $auto$ff.cc:266:slice$726 ($dffe) from module top_module.
+Setting constant 0-bit at position 22 on $auto$ff.cc:266:slice$726 ($dffe) from module top_module.
+Setting constant 0-bit at position 23 on $auto$ff.cc:266:slice$726 ($dffe) from module top_module.
+Setting constant 0-bit at position 24 on $auto$ff.cc:266:slice$726 ($dffe) from module top_module.
+Setting constant 0-bit at position 25 on $auto$ff.cc:266:slice$726 ($dffe) from module top_module.
+Setting constant 0-bit at position 26 on $auto$ff.cc:266:slice$726 ($dffe) from module top_module.
+Setting constant 0-bit at position 27 on $auto$ff.cc:266:slice$726 ($dffe) from module top_module.
+Setting constant 0-bit at position 28 on $auto$ff.cc:266:slice$726 ($dffe) from module top_module.
+Setting constant 0-bit at position 29 on $auto$ff.cc:266:slice$726 ($dffe) from module top_module.
+Setting constant 0-bit at position 30 on $auto$ff.cc:266:slice$726 ($dffe) from module top_module.
+Setting constant 0-bit at position 31 on $auto$ff.cc:266:slice$726 ($dffe) from module top_module.
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$727 ($dffe) from module top_module.
+Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$727 ($dffe) from module top_module.
+Setting constant 0-bit at position 2 on $auto$ff.cc:266:slice$727 ($dffe) from module top_module.
+Setting constant 0-bit at position 3 on $auto$ff.cc:266:slice$727 ($dffe) from module top_module.
+Setting constant 0-bit at position 4 on $auto$ff.cc:266:slice$727 ($dffe) from module top_module.
+Setting constant 0-bit at position 5 on $auto$ff.cc:266:slice$727 ($dffe) from module top_module.
+Setting constant 0-bit at position 6 on $auto$ff.cc:266:slice$727 ($dffe) from module top_module.
+Setting constant 0-bit at position 7 on $auto$ff.cc:266:slice$727 ($dffe) from module top_module.
+Setting constant 0-bit at position 8 on $auto$ff.cc:266:slice$727 ($dffe) from module top_module.
+Setting constant 0-bit at position 9 on $auto$ff.cc:266:slice$727 ($dffe) from module top_module.
+Setting constant 0-bit at position 10 on $auto$ff.cc:266:slice$727 ($dffe) from module top_module.
+Setting constant 0-bit at position 11 on $auto$ff.cc:266:slice$727 ($dffe) from module top_module.
+Setting constant 0-bit at position 12 on $auto$ff.cc:266:slice$727 ($dffe) from module top_module.
+Setting constant 0-bit at position 13 on $auto$ff.cc:266:slice$727 ($dffe) from module top_module.
+Setting constant 0-bit at position 14 on $auto$ff.cc:266:slice$727 ($dffe) from module top_module.
+Setting constant 0-bit at position 15 on $auto$ff.cc:266:slice$727 ($dffe) from module top_module.
+Setting constant 0-bit at position 16 on $auto$ff.cc:266:slice$727 ($dffe) from module top_module.
+Setting constant 0-bit at position 17 on $auto$ff.cc:266:slice$727 ($dffe) from module top_module.
+Setting constant 0-bit at position 18 on $auto$ff.cc:266:slice$727 ($dffe) from module top_module.
+Setting constant 0-bit at position 19 on $auto$ff.cc:266:slice$727 ($dffe) from module top_module.
+Setting constant 0-bit at position 20 on $auto$ff.cc:266:slice$727 ($dffe) from module top_module.
+Setting constant 0-bit at position 21 on $auto$ff.cc:266:slice$727 ($dffe) from module top_module.
+Setting constant 0-bit at position 22 on $auto$ff.cc:266:slice$727 ($dffe) from module top_module.
+Setting constant 0-bit at position 23 on $auto$ff.cc:266:slice$727 ($dffe) from module top_module.
+Setting constant 0-bit at position 24 on $auto$ff.cc:266:slice$727 ($dffe) from module top_module.
+Setting constant 0-bit at position 25 on $auto$ff.cc:266:slice$727 ($dffe) from module top_module.
+Setting constant 0-bit at position 26 on $auto$ff.cc:266:slice$727 ($dffe) from module top_module.
+Setting constant 0-bit at position 27 on $auto$ff.cc:266:slice$727 ($dffe) from module top_module.
+Setting constant 0-bit at position 28 on $auto$ff.cc:266:slice$727 ($dffe) from module top_module.
+Setting constant 0-bit at position 29 on $auto$ff.cc:266:slice$727 ($dffe) from module top_module.
+Setting constant 0-bit at position 30 on $auto$ff.cc:266:slice$727 ($dffe) from module top_module.
+Setting constant 0-bit at position 31 on $auto$ff.cc:266:slice$727 ($dffe) from module top_module.
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$728 ($dffe) from module top_module.
+Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$728 ($dffe) from module top_module.
+Setting constant 0-bit at position 2 on $auto$ff.cc:266:slice$728 ($dffe) from module top_module.
+Setting constant 0-bit at position 3 on $auto$ff.cc:266:slice$728 ($dffe) from module top_module.
+Setting constant 0-bit at position 4 on $auto$ff.cc:266:slice$728 ($dffe) from module top_module.
+Setting constant 0-bit at position 5 on $auto$ff.cc:266:slice$728 ($dffe) from module top_module.
+Setting constant 0-bit at position 6 on $auto$ff.cc:266:slice$728 ($dffe) from module top_module.
+Setting constant 0-bit at position 7 on $auto$ff.cc:266:slice$728 ($dffe) from module top_module.
+Setting constant 0-bit at position 8 on $auto$ff.cc:266:slice$728 ($dffe) from module top_module.
+Setting constant 0-bit at position 9 on $auto$ff.cc:266:slice$728 ($dffe) from module top_module.
+Setting constant 0-bit at position 10 on $auto$ff.cc:266:slice$728 ($dffe) from module top_module.
+Setting constant 0-bit at position 11 on $auto$ff.cc:266:slice$728 ($dffe) from module top_module.
+Setting constant 0-bit at position 12 on $auto$ff.cc:266:slice$728 ($dffe) from module top_module.
+Setting constant 0-bit at position 13 on $auto$ff.cc:266:slice$728 ($dffe) from module top_module.
+Setting constant 0-bit at position 14 on $auto$ff.cc:266:slice$728 ($dffe) from module top_module.
+Setting constant 0-bit at position 15 on $auto$ff.cc:266:slice$728 ($dffe) from module top_module.
+Setting constant 0-bit at position 16 on $auto$ff.cc:266:slice$728 ($dffe) from module top_module.
+Setting constant 0-bit at position 17 on $auto$ff.cc:266:slice$728 ($dffe) from module top_module.
+Setting constant 0-bit at position 18 on $auto$ff.cc:266:slice$728 ($dffe) from module top_module.
+Setting constant 0-bit at position 19 on $auto$ff.cc:266:slice$728 ($dffe) from module top_module.
+Setting constant 0-bit at position 20 on $auto$ff.cc:266:slice$728 ($dffe) from module top_module.
+Setting constant 0-bit at position 21 on $auto$ff.cc:266:slice$728 ($dffe) from module top_module.
+Setting constant 0-bit at position 22 on $auto$ff.cc:266:slice$728 ($dffe) from module top_module.
+Setting constant 0-bit at position 23 on $auto$ff.cc:266:slice$728 ($dffe) from module top_module.
+Setting constant 0-bit at position 24 on $auto$ff.cc:266:slice$728 ($dffe) from module top_module.
+Setting constant 0-bit at position 25 on $auto$ff.cc:266:slice$728 ($dffe) from module top_module.
+Setting constant 0-bit at position 26 on $auto$ff.cc:266:slice$728 ($dffe) from module top_module.
+Setting constant 0-bit at position 27 on $auto$ff.cc:266:slice$728 ($dffe) from module top_module.
+Setting constant 0-bit at position 28 on $auto$ff.cc:266:slice$728 ($dffe) from module top_module.
+Setting constant 0-bit at position 29 on $auto$ff.cc:266:slice$728 ($dffe) from module top_module.
+Setting constant 0-bit at position 30 on $auto$ff.cc:266:slice$728 ($dffe) from module top_module.
+Setting constant 0-bit at position 31 on $auto$ff.cc:266:slice$728 ($dffe) from module top_module.
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$733 ($dffe) from module top_module.
+Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$733 ($dffe) from module top_module.
+Setting constant 0-bit at position 2 on $auto$ff.cc:266:slice$733 ($dffe) from module top_module.
+Setting constant 0-bit at position 3 on $auto$ff.cc:266:slice$733 ($dffe) from module top_module.
+Setting constant 0-bit at position 4 on $auto$ff.cc:266:slice$733 ($dffe) from module top_module.
+Setting constant 0-bit at position 5 on $auto$ff.cc:266:slice$733 ($dffe) from module top_module.
+Setting constant 0-bit at position 6 on $auto$ff.cc:266:slice$733 ($dffe) from module top_module.
+Setting constant 0-bit at position 7 on $auto$ff.cc:266:slice$733 ($dffe) from module top_module.
+Setting constant 0-bit at position 8 on $auto$ff.cc:266:slice$733 ($dffe) from module top_module.
+Setting constant 0-bit at position 9 on $auto$ff.cc:266:slice$733 ($dffe) from module top_module.
+Setting constant 0-bit at position 10 on $auto$ff.cc:266:slice$733 ($dffe) from module top_module.
+Setting constant 0-bit at position 11 on $auto$ff.cc:266:slice$733 ($dffe) from module top_module.
+Setting constant 0-bit at position 12 on $auto$ff.cc:266:slice$733 ($dffe) from module top_module.
+Setting constant 0-bit at position 13 on $auto$ff.cc:266:slice$733 ($dffe) from module top_module.
+Setting constant 0-bit at position 14 on $auto$ff.cc:266:slice$733 ($dffe) from module top_module.
+Setting constant 0-bit at position 15 on $auto$ff.cc:266:slice$733 ($dffe) from module top_module.
+Setting constant 0-bit at position 16 on $auto$ff.cc:266:slice$733 ($dffe) from module top_module.
+Setting constant 0-bit at position 17 on $auto$ff.cc:266:slice$733 ($dffe) from module top_module.
+Setting constant 0-bit at position 18 on $auto$ff.cc:266:slice$733 ($dffe) from module top_module.
+Setting constant 0-bit at position 19 on $auto$ff.cc:266:slice$733 ($dffe) from module top_module.
+Setting constant 0-bit at position 20 on $auto$ff.cc:266:slice$733 ($dffe) from module top_module.
+Setting constant 0-bit at position 21 on $auto$ff.cc:266:slice$733 ($dffe) from module top_module.
+Setting constant 0-bit at position 22 on $auto$ff.cc:266:slice$733 ($dffe) from module top_module.
+Setting constant 0-bit at position 23 on $auto$ff.cc:266:slice$733 ($dffe) from module top_module.
+Setting constant 0-bit at position 24 on $auto$ff.cc:266:slice$733 ($dffe) from module top_module.
+Setting constant 0-bit at position 25 on $auto$ff.cc:266:slice$733 ($dffe) from module top_module.
+Setting constant 0-bit at position 26 on $auto$ff.cc:266:slice$733 ($dffe) from module top_module.
+Setting constant 0-bit at position 27 on $auto$ff.cc:266:slice$733 ($dffe) from module top_module.
+Setting constant 0-bit at position 28 on $auto$ff.cc:266:slice$733 ($dffe) from module top_module.
+Setting constant 0-bit at position 29 on $auto$ff.cc:266:slice$733 ($dffe) from module top_module.
+Setting constant 0-bit at position 30 on $auto$ff.cc:266:slice$733 ($dffe) from module top_module.
+Setting constant 0-bit at position 31 on $auto$ff.cc:266:slice$733 ($dffe) from module top_module.
+
+42.24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top_module..
+Removed 37 unused cells and 37 unused wires.
+<suppressed ~38 debug messages>
+
+42.25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top_module.
+<suppressed ~15 debug messages>
+
+42.26. Rerunning OPT passes. (Maybe there is more to do..)
+
+42.27. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \top_module..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][4][10]$190.
+    dead port 2/2 on $mux $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][4][10]$190.
+    dead port 1/2 on $mux $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][4][9]$187.
+    dead port 2/2 on $mux $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][4][9]$187.
+    dead port 1/2 on $mux $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][5]$151.
+    dead port 2/2 on $mux $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][5]$151.
+    dead port 1/2 on $mux $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][1]$121.
+    dead port 2/2 on $mux $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][1]$121.
+    dead port 1/2 on $mux $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][4]$148.
+    dead port 2/2 on $mux $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][4]$148.
+    dead port 1/2 on $mux $flatten\imem.$procmux$59.
+    dead port 2/2 on $mux $flatten\imem.$procmux$59.
+    dead port 1/2 on $mux $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$118.
+    dead port 2/2 on $mux $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][1][0]$118.
+    dead port 1/2 on $mux $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$130.
+    dead port 2/2 on $mux $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][2]$130.
+    dead port 1/2 on $mux $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][3]$145.
+    dead port 2/2 on $mux $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][3]$145.
+    dead port 1/2 on $mux $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][1]$127.
+    dead port 2/2 on $mux $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][1]$127.
+    dead port 1/2 on $mux $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$136.
+    dead port 2/2 on $mux $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][0]$136.
+    dead port 1/2 on $mux $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][1]$139.
+    dead port 2/2 on $mux $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][3][1]$139.
+    dead port 1/2 on $mux $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$115.
+    dead port 2/2 on $mux $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][0][0]$115.
+    dead port 1/2 on $mux $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$124.
+    dead port 2/2 on $mux $memory$flatten\imem.$auto$proc_rom.cc:150:do_switch$37$rdmux[0][2][0]$124.
+Removed 28 multiplexer ports.
+<suppressed ~2 debug messages>
+
+42.28. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \top_module.
+Performed a total of 0 changes.
+
+42.29. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top_module'.
+Removed a total of 0 cells.
+
+42.30. Executing OPT_SHARE pass.
+
+42.31. Executing OPT_DFF pass (perform DFF optimizations).
+
+42.32. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top_module..
+Removed 4 unused cells and 35 unused wires.
+<suppressed ~8 debug messages>
+
+42.33. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top_module.
+<suppressed ~5 debug messages>
+
+42.34. Rerunning OPT passes. (Maybe there is more to do..)
+
+42.35. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \top_module..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+42.36. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \top_module.
+Performed a total of 0 changes.
+
+42.37. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top_module'.
+Removed a total of 0 cells.
+
+42.38. Executing OPT_SHARE pass.
+
+42.39. Executing OPT_DFF pass (perform DFF optimizations).
+
+42.40. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top_module..
+
+42.41. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top_module.
+
+42.42. Finished OPT passes. (There is nothing left to do.)
+
+43. Executing TECHMAP pass (map to technology primitives).
+
+43.1. Executing Verilog-2005 frontend: /nix/store/sx2v0i73mn1ih2z1nk61pm9n5gjgpidy-yosys/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/nix/store/sx2v0i73mn1ih2z1nk61pm9n5gjgpidy-yosys/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+43.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~73 debug messages>
+
+44. Executing OPT pass (performing simple optimizations).
+
+44.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top_module.
+
+44.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top_module'.
+Removed a total of 0 cells.
+
+44.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+44.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top_module..
+
+44.5. Finished fast OPT passes.
+
+45. Executing ABC pass (technology mapping using ABC).
+
+45.1. Extracting gate netlist of module `\top_module' to `<abc-temp-dir>/input.blif'..
+Extracted 0 gates and 0 wires to a netlist network with 0 inputs and 0 outputs.
+Don't call ABC as there is nothing to map.
+Removing temp directory.
+
+46. Executing OPT pass (performing simple optimizations).
+
+46.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top_module.
+
+46.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top_module'.
+Removed a total of 0 cells.
+
+46.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+46.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top_module..
+
+46.5. Finished fast OPT passes.
+
+47. Executing HIERARCHY pass (managing design hierarchy).
+
+47.1. Analyzing design hierarchy..
+Top module:  \top_module
+
+47.2. Analyzing design hierarchy..
+Top module:  \top_module
+Removed 0 unused modules.
+
+48. Printing statistics.
+
+=== top_module ===
+
+   Number of wires:                 54
+   Number of wire bits:           1018
+   Number of public wires:          54
+   Number of public wire bits:    1018
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  0
+
+49. Executing CHECK pass (checking for obvious problems).
+Checking module top_module...
+Found and reported 0 problems.
+
+50. Generating Graphviz representation of design.
+Writing dot description to `/openlane/designs/project6/runs/RUN_2025.06.02_21.58.02/tmp/synthesis/post_techmap.dot'.
+Dumping module top_module to page 1.
+
+51. Executing SHARE pass (SAT-based resource sharing).
+
+52. Executing OPT pass (performing simple optimizations).
+
+52.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top_module.
+
+52.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top_module'.
+Removed a total of 0 cells.
+
+52.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \top_module..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+52.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \top_module.
+Performed a total of 0 changes.
+
+52.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top_module'.
+Removed a total of 0 cells.
+
+52.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+52.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top_module..
+
+52.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top_module.
+
+52.9. Finished OPT passes. (There is nothing left to do.)
+
+53. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top_module..
+Removed 0 unused cells and 49 unused wires.
+<suppressed ~49 debug messages>
+
+54. Printing statistics.
+
+=== top_module ===
+
+   Number of wires:                  5
+   Number of wire bits:             67
+   Number of public wires:           5
+   Number of public wire bits:      67
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  0
+
+mapping tbuf
+
+55. Executing TECHMAP pass (map to technology primitives).
+
+55.1. Executing Verilog-2005 frontend: /home/furkan/.volare/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tribuff_map.v
+Parsing Verilog input from `/home/furkan/.volare/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tribuff_map.v' to AST representation.
+Generating RTLIL representation for module `\$_TBUF_'.
+Successfully finished Verilog frontend.
+
+55.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~3 debug messages>
+
+56. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+57. Executing TECHMAP pass (map to technology primitives).
+
+57.1. Executing Verilog-2005 frontend: /home/furkan/.volare/sky130A/libs.tech/openlane/sky130_fd_sc_hd/latch_map.v
+Parsing Verilog input from `/home/furkan/.volare/sky130A/libs.tech/openlane/sky130_fd_sc_hd/latch_map.v' to AST representation.
+Generating RTLIL representation for module `\$_DLATCH_P_'.
+Generating RTLIL representation for module `\$_DLATCH_N_'.
+Successfully finished Verilog frontend.
+
+57.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~4 debug messages>
+
+58. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+59. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+  cell sky130_fd_sc_hd__dfxtp_2 (noninv, pins=3, area=21.27) is a direct match for cell type $_DFF_P_.
+  cell sky130_fd_sc_hd__dfrtp_2 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN0_.
+  cell sky130_fd_sc_hd__dfstp_2 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN1_.
+  cell sky130_fd_sc_hd__dfbbn_2 (noninv, pins=6, area=35.03) is a direct match for cell type $_DFFSR_NNN_.
+  final dff cell mappings:
+    unmapped dff cell: $_DFF_N_
+    \sky130_fd_sc_hd__dfxtp_2 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    unmapped dff cell: $_DFF_NN0_
+    unmapped dff cell: $_DFF_NN1_
+    unmapped dff cell: $_DFF_NP0_
+    unmapped dff cell: $_DFF_NP1_
+    \sky130_fd_sc_hd__dfrtp_2 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    \sky130_fd_sc_hd__dfstp_2 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SET_B( R));
+    unmapped dff cell: $_DFF_PP0_
+    unmapped dff cell: $_DFF_PP1_
+    \sky130_fd_sc_hd__dfbbn_2 _DFFSR_NNN_ (.CLK_N( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff cell: $_DFFSR_NNP_
+    unmapped dff cell: $_DFFSR_NPN_
+    unmapped dff cell: $_DFFSR_NPP_
+    unmapped dff cell: $_DFFSR_PNN_
+    unmapped dff cell: $_DFFSR_PNP_
+    unmapped dff cell: $_DFFSR_PPN_
+    unmapped dff cell: $_DFFSR_PPP_
+
+59.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+Mapping DFF cells in module `\top_module':
+
+60. Printing statistics.
+
+=== top_module ===
+
+   Number of wires:                  5
+   Number of wire bits:             67
+   Number of public wires:           5
+   Number of public wire bits:      67
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  0
+
+[INFO]: USING STRATEGY AREA 0
+
+61. Executing ABC pass (technology mapping using ABC).
+
+61.1. Extracting gate netlist of module `\top_module' to `/tmp/yosys-abc-qbFiNJ/input.blif'..
+Extracted 0 gates and 0 wires to a netlist network with 0 inputs and 0 outputs.
+Don't call ABC as there is nothing to map.
+Removing temp directory.
+
+62. Executing SETUNDEF pass (replace undef values with defined constants).
+
+63. Executing HILOMAP pass (mapping to constant drivers).
+
+64. Executing SPLITNETS pass (splitting up multi-bit signals).
+
+65. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top_module..
+Removed 0 unused cells and 64 unused wires.
+<suppressed ~1 debug messages>
+
+66. Executing INSBUF pass (insert buffer cells for connected wires).
+
+67. Executing CHECK pass (checking for obvious problems).
+Checking module top_module...
+Found and reported 0 problems.
+
+68. Printing statistics.
+
+=== top_module ===
+
+   Number of wires:                  5
+   Number of wire bits:             67
+   Number of public wires:           5
+   Number of public wire bits:      67
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 64
+     sky130_fd_sc_hd__conb_1        64
+
+   Chip area for module '\top_module': 240.230400
+
+69. Executing Verilog backend.
+Dumping module `\top_module'.
+
+70. Executing JSON backend.
+
+End of script. Logfile hash: f1299cbc11, CPU: user 0.46s system 0.04s, MEM: 42.38 MB peak
+Yosys 0.38 (git sha1 543faed9c8c, clang++ 17.0.6 -fPIC -Os)
+Time spent: 28% 2x read_liberty (0 sec), 12% 4x stat (0 sec), ...
